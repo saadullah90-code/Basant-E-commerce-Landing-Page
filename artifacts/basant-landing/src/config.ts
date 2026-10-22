@@ -9,8 +9,7 @@ export type Product = {
   placeholder: true;
 };
 
-// Replace these development placeholders with client-approved product facts.
-// Keep price, stock, discount and review claims out until confirmed.
+// Replace placeholders only with client-approved product facts.
 export const PRODUCTS: Product[] = [
   { id: 'kite-01', name: 'Product placeholder 01', category: 'Details TBC', description: 'Development placeholder. Product information, price and availability are awaiting client confirmation.', imageTone: '#FFCC00', accent: '#FF5733', detail: 'Product details to be supplied by the client.', placeholder: true },
   { id: 'kite-02', name: 'Product placeholder 02', category: 'Details TBC', description: 'Development placeholder. Product information, price and availability are awaiting client confirmation.', imageTone: '#F1257A', accent: '#8526C7', detail: 'Product details to be supplied by the client.', placeholder: true },
@@ -19,8 +18,9 @@ export const PRODUCTS: Product[] = [
 ];
 
 export const FEATURED_PRODUCT_ID = 'kite-01';
-// Add the brand's country code + number, digits only, once confirmed.
-// Until configured, WhatsApp actions remain safely disabled.
+/** Configure only after URR Lahore confirms its WhatsApp number (digits with country code). */
 export const WHATSAPP_NUMBER = '';
-export const DEFAULT_WHATSAPP_MESSAGE = "Assalam-o-Alaikum! I'm interested in your Basant Collection. Please share more details.";
-export const TEMPORARY_BRAND_NAME = 'Basant';
+export const WHATSAPP_PLACEHOLDER = 'Pending confirmation from URR Lahore';
+export const DEFAULT_WHATSAPP_MESSAGE = "Assalam-o-Alaikum! I'm interested in your Basant Collection. Please share your pre-order details.";
+export const productWhatsAppMessage = (productName: string) => `Assalam-o-Alaikum! I would like to pre-order ${productName} from your Basant Collection. Please share the price, availability, and pre-order details.`;
+export const TEMPORARY_BRAND_NAME = 'URR Lahore';

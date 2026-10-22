@@ -661,9 +661,9 @@
 .mobile-nav a:nth-child(3) { animation-delay:90ms; }
 .mobile-nav a:nth-child(4) { animation-delay:135ms; }
 .mobile-nav a:nth-child(5) { animation-delay:180ms; }
-.collection,.featured-section,.feeling,.preorder-section,.site-footer { isolation:isolate; }
+.collection,.featured-section,.feeling,.preorder-section,.site-footer { position:relative; isolation:isolate; }
 .collection-kite { top:42px; right:4%; animation-delay:-2s; }
-.featured-kite { bottom:7%; left:2.5%; animation-duration:10s; }
+.featured-kite { top:18px; right:3%; animation-duration:10s; }
 .feeling-kite { top:8%; right:2.5%; animation-delay:-4s; }
 .preorder-kite { top:16%; right:3%; animation-duration:11s; }
 .footer-kite { top:8%; right:4%; animation-duration:10s; }

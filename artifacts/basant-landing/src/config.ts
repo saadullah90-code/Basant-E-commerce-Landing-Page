@@ -18,8 +18,8 @@ export const PRODUCTS: Product[] = [
 ];
 
 export const FEATURED_PRODUCT_ID = 'kite-01';
-/** Configure only after URR Lahore confirms its WhatsApp number (digits with country code). */
-export const WHATSAPP_NUMBER = '';
+/** URR Lahore business WhatsApp number in international format (digits only). */
+export const WHATSAPP_NUMBER = '923248778775';
 export const WHATSAPP_PLACEHOLDER = 'Pending confirmation from URR Lahore';
 export const DEFAULT_WHATSAPP_MESSAGE = "Assalam-o-Alaikum! I'm interested in your Basant Collection. Please share your pre-order details.";
 export const productWhatsAppMessage = (productName: string) => `Assalam-o-Alaikum! I would like to pre-order ${productName} from your Basant Collection. Please share the price, availability, and pre-order details.`;

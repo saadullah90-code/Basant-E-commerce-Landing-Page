@@ -701,3 +701,19 @@
   .text-reveal { opacity:1 !important; translate:0 0 !important; transition:none !important; }
   .ambient-kite.kite-pop { opacity:.52; scale:1; translate:0 0; rotate:0deg; }
 }
+.kite-preloader { position:fixed; z-index:120; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; overflow:hidden; background:var(--paper); color:var(--ink); opacity:1; transition:opacity .36s ease,visibility .36s ease; }
+.kite-preloader.is-leaving { opacity:0; visibility:hidden; pointer-events:none; }
+.preloader-sun { position:absolute; top:50%; left:50%; width:230px; height:230px; border:1px solid rgba(48,32,20,.12); border-radius:50%; background:radial-gradient(circle,rgba(255,204,0,.27) 0 38%,rgba(255,204,0,.08) 39% 62%,transparent 63%); transform:translate(-50%,-62%); }
+.preloader-kite { position:relative; z-index:1; display:grid; place-items:center; height:122px; animation:preloader-fly 1.4s ease-in-out infinite; filter:drop-shadow(0 8px 0 rgba(48,32,20,.1)); }
+.preloader-kite .kite-string { animation:string-sway .7s ease-in-out infinite alternate; }
+.preloader-brand { position:relative; z-index:1; margin-top:17px; font:600 10px 'Poppins',sans-serif; letter-spacing:.19em; }
+.preloader-brand i { color:var(--tomato); font-style:normal; padding:0 5px; }
+.preloader-message { position:relative; z-index:1; margin-top:9px; color:#816c57; font:500 8px 'Poppins',sans-serif; letter-spacing:.21em; }
+.preloader-progress { position:relative; z-index:1; width:116px; height:3px; margin-top:22px; overflow:hidden; border-radius:5px; background:rgba(48,32,20,.12); }
+.preloader-progress i { display:block; width:42%; height:100%; border-radius:inherit; background:var(--tomato); animation:preloader-progress 1s cubic-bezier(.65,0,.35,1) infinite; }
+@keyframes preloader-fly { 0%,100% { transform:translate3d(0,5px,0) rotate(-5deg); } 50% { transform:translate3d(0,-9px,0) rotate(5deg); } }
+@keyframes preloader-progress { from { transform:translateX(-110%); } to { transform:translateX(260%); } }
+@media (prefers-reduced-motion: reduce) {
+  .preloader-kite,.preloader-progress i { animation:none !important; }
+  .preloader-kite { transform:none; }
+}

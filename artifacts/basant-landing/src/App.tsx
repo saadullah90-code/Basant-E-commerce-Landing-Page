@@ -72,7 +72,34 @@ function ProductCard({ product, index, onUnavailable }: { product: Product; inde
 
 function App() {
   const [notice, setNotice] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+  const [loaderLeaving, setLoaderLeaving] = useState(false);
   const waLink = whatsappUrl(DEFAULT_WHATSAPP_MESSAGE);
+  useEffect(() => {
+    const startedAt = performance.now();
+    let finished = false;
+    let hideTimer = 0;
+    let removeTimer = 0;
+    const dismiss = () => {
+      if (finished) return;
+      finished = true;
+      const remaining = Math.max(0, 650 - (performance.now() - startedAt));
+      hideTimer = window.setTimeout(() => {
+        setLoaderLeaving(true);
+        removeTimer = window.setTimeout(() => setIsLoading(false), 360);
+      }, remaining);
+    };
+    const onLoad = () => dismiss();
+    if (document.readyState === 'complete') dismiss();
+    else window.addEventListener('load', onLoad, { once: true });
+    const fallbackTimer = window.setTimeout(dismiss, 1550);
+    return () => {
+      window.removeEventListener('load', onLoad);
+      window.clearTimeout(fallbackTimer);
+      window.clearTimeout(hideTimer);
+      window.clearTimeout(removeTimer);
+    };
+  }, []);
   useEffect(() => {
     document.title = 'Rangon Ki Uraan — Basant in Lahore';
     let description = document.querySelector('meta[name="description"]');
@@ -124,6 +151,7 @@ function App() {
     <footer className="site-footer" id="contact"><DecorativeKite className="footer-kite kite-pop" color="#FFCC00" secondColor="#F1257A" size={42} /><div className="footer-top"><div className="footer-brand-block"><a className="footer-brand" href="#top" aria-label={`${TEMPORARY_BRAND_NAME} home`}><img src="/urr-lahore-logo-tight.png" alt="URR Lahore" /></a><p>A seasonal collection inspired by Basant in Lahore. Product details and order confirmation are shared directly through WhatsApp.</p></div><div className="footer-callout"><h2 className="footer-tagline">LET’S MAKE THIS BASANT COLORFUL.</h2><button className="button footer-whatsapp-cta" type="button" onClick={contactWhatsApp}>PRE-ORDER ON WHATSAPP <ArrowUpRight size={17} /></button></div></div><div className="footer-bottom"><nav className="footer-links" aria-label="Footer navigation"><a href="#top">Home</a><a href="#collection">Collection</a><a href="#feeling">About Basant</a><a href="#preorder">How pre-orders work</a><a href="#contact">Contact</a></nav><p>Prices and availability are confirmed by the brand on WhatsApp.</p><span className="footer-year">© {new Date().getFullYear()} URR Lahore</span></div></footer>
     <button className={`floating-whatsapp ${waLink ? '' : 'not-configured'}`} type="button" onClick={contactWhatsApp} aria-label="Pre-order on WhatsApp" title={waLink ? 'Pre-order on WhatsApp' : WHATSAPP_PLACEHOLDER} data-testid="button-floating-whatsapp"><FaWhatsapp size={23} aria-hidden="true" /><span>PRE-ORDER</span></button>
     {notice && <div className="notice-toast" role="status" aria-live="polite">{notice}<button type="button" aria-label="Dismiss message" onClick={() => setNotice('')}><X size={16} /></button></div>}
+     {isLoading && <div className={`kite-preloader ${loaderLeaving ? 'is-leaving' : ''}`} role="status" aria-label="Loading URR Lahore Basant collection"><div className="preloader-sun" /><div className="preloader-kite"><KiteMark color="#F1257A" secondColor="#FFCC00" size={82} /></div><span className="preloader-brand">URR LAHORE <i> / </i> BASANT 2026</span><span className="preloader-message">THE SKY IS GETTING READY</span><span className="preloader-progress"><i /></span></div>}
   </div>;
 }
 

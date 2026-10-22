@@ -440,6 +440,8 @@
 .footer-links a:hover { color:var(--sun); }
 .footer-bottom p { margin:0; color:rgba(255,246,223,.7); font:400 9px/1.6 'Poppins',sans-serif; }
 .footer-year { color:#fff6df; font:500 10px 'Poppins',sans-serif; white-space:nowrap; }
+.footer-credit { margin:22px auto 0; text-align:center; color:rgba(255,246,223,.58); font:500 8px 'Poppins',sans-serif; letter-spacing:.17em; text-transform:uppercase; }
+.footer-credit strong { color:var(--sun); font-weight:600; }
 .header-collection-cta { white-space:nowrap; font-size:11px; padding:10px 13px; }
 .mobile-collection-cta { color:var(--tomato) !important; font-family:'Fredoka',sans-serif !important; font-weight:600 !important; }
 .floating-whatsapp { border-color:#187D42; background:#25D366; color:#123c23; box-shadow:3px 4px 0 #187D42; }

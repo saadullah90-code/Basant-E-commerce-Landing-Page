@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka:wght@500;600;700&family=Luckiest+Guy&family=Poppins:wght@400;500;600&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @plugin "@tailwindcss/typography";
@@ -78,23 +77,23 @@
 .button-font { font-family: 'Fredoka', sans-serif; font-weight: 600; }
 .sale-font { font-family: 'Luckiest Guy', cursive; }
 .page-shell { overflow: clip; }
-.grain::after { content:''; position:fixed; inset:0; z-index:30; pointer-events:none; opacity:.1; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E"); }
+.grain::after { display:none; }
 .reveal { opacity:1; transform:none; }
-.reveal.is-visible { animation:reveal-in .7s cubic-bezier(.2,.7,.2,1) both; }
+.reveal.is-visible { animation:reveal-in .52s cubic-bezier(.2,.7,.3,1) both; }
 .marquee-track { animation: marquee 28s linear infinite; }
 .marquee-track.reverse { animation-direction: reverse; }
 @keyframes marquee { to { transform:translateX(-50%); } }
-@keyframes reveal-in { from { opacity:.72; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes reveal-in { from { opacity:0; transform:translate3d(0,18px,0); } to { opacity:1; transform:translate3d(0,0,0); } }
 @keyframes sway { 50% { transform:rotate(3deg) translateY(-7px); } }
 @keyframes drift { 50% { transform:translate3d(12px,-9px,0); } }
 .kite-sway { transform-origin:50% 50%; animation:sway 5s ease-in-out infinite; }
-.kite-string { transform-box:fill-box; transform-origin:50% 0; animation:string-sway 2.8s ease-in-out infinite alternate; }
+.kite-string { transform-box:fill-box; transform-origin:50% 0; }
 @keyframes string-sway { to { transform:rotate(3deg); } }
 @keyframes kite-one-drift { 50% { transform:rotate(12deg) translate3d(8px,-10px,0); } }
 @keyframes kite-two-drift { 50% { transform:rotate(-15deg) translate3d(-7px,9px,0); } }
 @keyframes rooftop-float { 50% { transform:rotate(2.2deg) translateY(-7px); } }
 .kite-drift { animation:drift 7s ease-in-out infinite; }
-.header-scrolled { box-shadow:0 8px 30px rgba(71,42,14,.09); backdrop-filter:blur(14px); }
+.header-scrolled { box-shadow:0 8px 30px rgba(71,42,14,.09); }
 .hero-sky { background:linear-gradient(180deg,#ffe58b 0%,#ffcc59 46%,#ff9a5c 100%); }
 .editorial-shadow { box-shadow:8px 9px 0 #302014; }
 .focus-ring:focus-visible { outline:3px solid var(--sky); outline-offset:4px; }
@@ -633,11 +632,14 @@
 .hero-banner-links .button { padding:10px 15px; font-size:11px; }
 .hero-banner-secondary { background:transparent; }
 .visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-.ambient-kite { position:absolute; z-index:2; display:block; pointer-events:none; opacity:.42; filter:drop-shadow(2px 4px 0 rgba(48,32,20,.13)); animation:kite-flight-path 9s ease-in-out infinite; }
+.ambient-kite { position:absolute; z-index:2; display:block; pointer-events:none; opacity:.52; }
 .ambient-kite svg { display:block; }
-.kite-float { animation:kite-lift 6.5s ease-in-out infinite; }
-.kite-float-slow { animation-duration:9s; animation-delay:-3s; }
-.kite-pop { animation:kite-pop 8s cubic-bezier(.2,.7,.2,1) infinite; }
+.kite-float,.kite-float-slow,.kite-pop { animation:none; }
+.ambient-kite.motion-active:not(.kite-pop):not(.kite-float) { animation:kite-flight-path 10s ease-in-out infinite; }
+.ambient-kite.motion-active.kite-pop { animation:kite-pop 9s cubic-bezier(.2,.7,.2,1) infinite; }
+.ambient-kite.motion-active.kite-float { animation:kite-lift 8s ease-in-out infinite; }
+.product-art.motion-active .art-kite-main { animation:kite-lift 8s ease-in-out infinite; }
+.ambient-kite.motion-active .kite-string { animation:string-sway 3.2s ease-in-out infinite alternate; }
 @keyframes kite-flight-path {
   0%,100% { translate:0 0; rotate:-8deg; }
   50% { translate:28px -19px; rotate:9deg; }
@@ -651,17 +653,16 @@
   15% { opacity:.82; scale:1.1; translate:0 -5px; rotate:7deg; }
   23%,76% { opacity:.62; scale:1; translate:0 0; rotate:0deg; }
 }
-.text-reveal.text-visible { animation:text-arrive .96s cubic-bezier(.16,1,.3,1) var(--text-delay,0ms) both; }
-@keyframes text-arrive {
-  from { opacity:0; translate:0 28px; scale:.96; filter:blur(5px); }
-  to { opacity:1; translate:0 0; scale:1; filter:blur(0); }
-}
-.notice-toast { animation:text-arrive .65s cubic-bezier(.16,1,.3,1) both; }
-.mobile-nav a { animation:text-arrive .5s cubic-bezier(.18,.7,.25,1) both; }
-.mobile-nav a:nth-child(2) { animation-delay:45ms; }
-.mobile-nav a:nth-child(3) { animation-delay:90ms; }
-.mobile-nav a:nth-child(4) { animation-delay:135ms; }
-.mobile-nav a:nth-child(5) { animation-delay:180ms; }
+.text-reveal { opacity:1; translate:0 0; }
+.text-reveal.text-visible { animation:scroll-text-in .44s cubic-bezier(.2,.7,.3,1) var(--text-delay,0ms) both; }
+@keyframes scroll-text-in { from { opacity:0; translate:0 16px; } to { opacity:1; translate:0 0; } }
+.notice-toast { animation:toast-in .24s ease-out both; }
+@keyframes toast-in { from { opacity:0; transform:translate3d(0,8px,0); } to { opacity:1; transform:translate3d(0,0,0); } }
+.mobile-nav a { animation:reveal-in .32s cubic-bezier(.2,.7,.3,1) both; }
+.mobile-nav a:nth-child(2) { animation-delay:35ms; }
+.mobile-nav a:nth-child(3) { animation-delay:70ms; }
+.mobile-nav a:nth-child(4) { animation-delay:105ms; }
+.mobile-nav a:nth-child(5) { animation-delay:140ms; }
 .collection,.featured-section,.feeling,.preorder-section,.site-footer { position:relative; isolation:isolate; }
 .collection-kite { top:42px; right:4%; animation-delay:-2s; }
 .featured-kite { top:18px; right:3%; animation-duration:10s; }
@@ -697,5 +698,6 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .text-reveal.text-visible,.mobile-nav a,.ambient-kite,.kite-float { animation:none !important; }
-  .ambient-kite.kite-pop { opacity:.42; scale:1; translate:0 0; rotate:0deg; }
+  .text-reveal { opacity:1 !important; translate:0 0 !important; transition:none !important; }
+  .ambient-kite.kite-pop { opacity:.52; scale:1; translate:0 0; rotate:0deg; }
 }

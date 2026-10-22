@@ -24,9 +24,25 @@ function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
-    const update = () => setScrolled(window.scrollY > 24);
-    update(); window.addEventListener('scroll', update, { passive: true });
-    return () => window.removeEventListener('scroll', update);
+    let frame = 0;
+    let previous = window.scrollY > 24;
+    setScrolled(previous);
+    const update = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        const next = window.scrollY > 24;
+        if (next !== previous) {
+          previous = next;
+          setScrolled(next);
+        }
+      });
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', update);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, []);
   const links = [['Home', '#top'], ['Collection', '#collection'], ['Our story', '#feeling'], ['Pre-order', '#preorder'], ['Contact', '#contact']];
   return <header className={`site-header ${scrolled ? 'header-scrolled' : ''}`}><div className="header-inner"><a className="brand-lockup focus-ring" href="#top" aria-label={`${TEMPORARY_BRAND_NAME} home`}><img src="/urr-lahore-logo-tight.png" alt="URR Lahore" /></a><nav className="desktop-nav" aria-label="Main navigation">{links.map(([label, href]) => <a href={href} key={href}>{label}</a>)}</nav><a className="button button-dark header-collection-cta" href="#collection">SHOP COLLECTION <ArrowDownRight size={15} /></a><button className="mobile-menu-button focus-ring" aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={menuOpen} type="button" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={22} /> : <Menu size={22} />}</button></div>{menuOpen && <nav className="mobile-nav" aria-label="Mobile navigation">{links.map(([label, href]) => <a href={href} key={href} onClick={() => setMenuOpen(false)}>{label}<ArrowUpRight size={16} /></a>)}<a className="mobile-collection-cta" href="#collection" onClick={() => setMenuOpen(false)}>SHOP COLLECTION <ArrowDownRight size={16} /></a></nav>}</header>;
@@ -64,17 +80,26 @@ function App() {
     description.setAttribute('content', 'Celebrate Basant. Fly High. Live in Color. Discover the URR Lahore Basant collection.');
     if (!('IntersectionObserver' in window)) return;
     const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      const target = entry.target;
+      if (target.classList.contains('motion-watch')) {
+        target.classList.toggle('motion-active', entry.isIntersecting);
+        return;
+      }
       if (!entry.isIntersecting) return;
-      if (entry.target.classList.contains('reveal')) entry.target.classList.add('is-visible');
-      if (entry.target.classList.contains('text-reveal')) entry.target.classList.add('text-visible');
-      observer.unobserve(entry.target);
-    }), { threshold: 0.12 });
+      if (target.classList.contains('reveal')) target.classList.add('is-visible');
+      if (target.classList.contains('text-reveal')) target.classList.add('text-visible');
+      observer.unobserve(target);
+    }), { threshold: 0.08, rootMargin: '70px 0px' });
     document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
     const textTargets = document.querySelectorAll<HTMLElement>('h1,h2,h3,p,a,button,.announce-unit,.ticker-unit,.product-poster-head,.product-meta,.placeholder-tag,.product-card-sparkle,.step-number,.note-stamp,.art-caption,.footer-year,.footer-tagline');
     textTargets.forEach((element, index) => {
       if (!element.textContent?.trim()) return;
       element.classList.add('text-reveal');
-      element.style.setProperty('--text-delay', `${(index % 6) * 60}ms`);
+      element.style.setProperty('--text-delay', `${(index % 5) * 35}ms`);
+      observer.observe(element);
+    });
+    document.querySelectorAll<HTMLElement>('.ambient-kite,.product-art').forEach((element) => {
+      element.classList.add('motion-watch');
       observer.observe(element);
     });
     return () => observer.disconnect();
@@ -87,7 +112,7 @@ function App() {
     <div className="announcement" aria-label="Basant season. Celebrate in full color."><div className="announce-track marquee-track" aria-hidden="true">{Array.from({ length: 4 }, (_, index) => <span className="announce-unit" key={index}>BASANT SEASON <i>✦</i> LAHORE IN FULL COLOR <i>✦</i></span>)}</div></div>
     <Header />
     <main>
-      <section className="hero hero-banner" aria-labelledby="hero-title"><h1 className="visually-hidden" id="hero-title">Premium Basant Collection — URR Lahore</h1><div className="hero-banner-frame"><img className="hero-banner-image" src="/basant-campaign-banner.png" alt="Premium Basant Collection banner with colorful kites above Lahore rooftops and kite-string spools" fetchPriority="high" /><DecorativeKite className="banner-kite-one" color="#F1257A" secondColor="#FFCC00" size={38} /><DecorativeKite className="banner-kite-two" color="#06B6D4" secondColor="#FF5733" size={47} /></div><div className="hero-banner-actions"><p>URR LAHORE <span>/ BASANT 2026</span></p><div className="hero-banner-links"><a className="button button-dark" href="#collection">EXPLORE THE COLLECTION <ArrowDownRight size={17} /></a><a className="button hero-banner-secondary" href="#feeling">DISCOVER THE STORY <ArrowRight size={16} /></a></div></div></section>
+      <section className="hero hero-banner" aria-labelledby="hero-title"><h1 className="visually-hidden" id="hero-title">Premium Basant Collection — URR Lahore</h1><div className="hero-banner-frame"><img className="hero-banner-image" src="/basant-campaign-banner.webp" alt="Premium Basant Collection banner with colorful kites above Lahore rooftops and kite-string spools" fetchPriority="high" /><DecorativeKite className="banner-kite-one" color="#F1257A" secondColor="#FFCC00" size={38} /><DecorativeKite className="banner-kite-two" color="#06B6D4" secondColor="#FF5733" size={47} /></div><div className="hero-banner-actions"><p>URR LAHORE <span>/ BASANT 2026</span></p><div className="hero-banner-links"><a className="button button-dark" href="#collection">EXPLORE THE COLLECTION <ArrowDownRight size={17} /></a><a className="button hero-banner-secondary" href="#feeling">DISCOVER THE STORY <ArrowRight size={16} /></a></div></div></section>
       <div className="ticker" aria-label="Basant. Lahore. Sky full of color."><div className="ticker-track marquee-track" aria-hidden="true">{Array.from({ length: 4 }, (_, index) => <span className="ticker-unit" key={index}>BASANT <i>✳</i> LAHORE <b>✦</b> SKY FULL OF COLOR <i>✳</i></span>)}</div></div>
       <section className="collection section-pad" id="collection" aria-labelledby="collection-title"><DecorativeKite className="collection-kite kite-pop" color="#F1257A" secondColor="#FFCC00" size={46} /><div className="section-heading reveal"><div><p className="eyebrow"><span className="eyebrow-mark">02</span> THE COLLECTION</p><h2 className="heading" id="collection-title">THE BASANT COLLECTION</h2></div><p className="section-intro">Made for the season. Reserved for the celebration.</p></div><div className="product-grid">{PRODUCTS.map((product, index) => <ProductCard key={product.id} product={product} index={index + 1} onUnavailable={() => setNotice(`WhatsApp pre-orders are not available yet. ${WHATSAPP_PLACEHOLDER}.`)} />)}</div><div className="collection-note reveal"><span className="note-stamp sale-font">MADE<br />FOR SKY</span><p>Product names and illustrations are placeholders; ask us for confirmed product details, price and availability when pre-orders open.</p><span className="note-doodle"><Wind size={29} /></span></div></section>
       {featured && <section className="featured-section" aria-labelledby="featured-title"><DecorativeKite className="featured-kite" color="#06B6D4" secondColor="#FF5733" size={48} /><div className="featured-art reveal"><ProductArtwork product={featured} /><span className="featured-stamp sale-font">A CLOSER<br />LOOK</span></div><div className="featured-copy reveal"><p className="eyebrow"><span className="eyebrow-mark">FEATURED / COLLECTION PLACEHOLDER</span></p><h2 className="heading" id="featured-title">{featured.name}</h2><p>{featured.description}</p><p className="featured-details">Request confirmed product information, price and availability through WhatsApp.</p><div className="featured-actions"><WhatsAppButton message={productWhatsAppMessage(featured.name)} onUnavailable={() => setNotice(`WhatsApp pre-orders are not available yet. ${WHATSAPP_PLACEHOLDER}.`)}>PRE-ORDER ON WHATSAPP</WhatsAppButton></div></div></section>}

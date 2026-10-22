@@ -1,0 +1,1 @@
+- [URR Lahore logo display](urr-lahore-logo.md) — the supplied transparent canvas differs from the visible mark; verify the whole kite and wordmark at desktop and mobile sizes.

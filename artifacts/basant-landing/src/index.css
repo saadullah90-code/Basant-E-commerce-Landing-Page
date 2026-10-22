@@ -647,15 +647,16 @@
   50% { translate:8px -9px; }
 }
 @keyframes kite-pop {
-  0%,100% { opacity:0; scale:.38; translate:0 15px; rotate:-13deg; }
-  13% { opacity:.68; scale:1.08; translate:0 0; rotate:6deg; }
-  19%,78% { opacity:.5; scale:1; translate:0 0; rotate:0deg; }
+  0%,100% { opacity:.46; scale:.84; translate:0 7px; rotate:-9deg; }
+  15% { opacity:.82; scale:1.1; translate:0 -5px; rotate:7deg; }
+  23%,76% { opacity:.62; scale:1; translate:0 0; rotate:0deg; }
 }
-.text-reveal.text-visible { animation:text-arrive .68s cubic-bezier(.18,.7,.25,1) var(--text-delay,0ms) both; }
+.text-reveal.text-visible { animation:text-arrive .96s cubic-bezier(.16,1,.3,1) var(--text-delay,0ms) both; }
 @keyframes text-arrive {
-  from { opacity:0; translate:0 12px; filter:blur(2px); }
-  to { opacity:1; translate:0 0; filter:blur(0); }
+  from { opacity:0; translate:0 28px; scale:.96; filter:blur(5px); }
+  to { opacity:1; translate:0 0; scale:1; filter:blur(0); }
 }
+.notice-toast { animation:text-arrive .65s cubic-bezier(.16,1,.3,1) both; }
 .mobile-nav a { animation:text-arrive .5s cubic-bezier(.18,.7,.25,1) both; }
 .mobile-nav a:nth-child(2) { animation-delay:45ms; }
 .mobile-nav a:nth-child(3) { animation-delay:90ms; }
@@ -666,7 +667,7 @@
 .featured-kite { top:18px; right:3%; animation-duration:10s; }
 .feeling-kite { top:8%; right:2.5%; animation-delay:-4s; }
 .preorder-kite { top:16%; right:3%; animation-duration:11s; }
-.footer-kite { top:8%; right:4%; animation-duration:10s; }
+.footer-kite { top:8%; right:4%; opacity:.78; animation-duration:10s; }
 .final-cta { isolation:isolate; }
 .final-cta-kite { z-index:0; }
 .site-footer { position:relative; }

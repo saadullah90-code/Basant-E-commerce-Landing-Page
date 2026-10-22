@@ -74,7 +74,7 @@ function App() {
     textTargets.forEach((element, index) => {
       if (!element.textContent?.trim()) return;
       element.classList.add('text-reveal');
-      element.style.setProperty('--text-delay', `${(index % 5) * 45}ms`);
+      element.style.setProperty('--text-delay', `${(index % 6) * 60}ms`);
       observer.observe(element);
     });
     return () => observer.disconnect();

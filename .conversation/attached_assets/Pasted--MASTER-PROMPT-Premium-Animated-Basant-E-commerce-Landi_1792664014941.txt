@@ -1,0 +1,700 @@
+# MASTER PROMPT: Premium Animated Basant E-commerce Landing Page
+
+## PROJECT OVERVIEW
+
+Build a fully functional, visually stunning, colorful, premium Basant-themed single-page e-commerce landing website for my client.
+
+The website should capture the authentic festive energy of Basant in Lahore, Pakistan, with colorful kites, bright skies, rooftop-inspired visuals, expressive typography, playful motion design, and an attractive ecommerce product collection.
+
+I have provided the client's logo and a reference image containing the recommended font combination and color palette. Use these references as the primary design requirements.
+
+The website must feel like a professionally art-directed campaign created by an experienced human creative director, UI/UX designer, motion designer, and frontend developer.
+
+**MOST IMPORTANT REQUIREMENT: THE WEBSITE MUST NOT LOOK AI-GENERATED OR LIKE A GENERIC WEBSITE TEMPLATE.**
+
+It should have a distinctive visual identity, intentional composition, authentic Pakistani cultural references, premium typography, polished interactions, and carefully controlled animation.
+
+Build one complete, long-scrolling landing page. Do not create multiple separate marketing pages.
+
+Before coding, inspect the existing Replit project, its framework, assets, dependencies, and entry points. Preserve any working functionality and implement the website using the existing stack wherever practical.
+
+---
+
+# 1. CREATIVE DIRECTION — NO GENERIC AI WEBSITE DESIGN
+
+Treat this as a premium seasonal campaign for a Pakistani brand, not a standard ecommerce template with colorful backgrounds.
+
+The creative direction should combine:
+
+- The vibrant culture of Lahore's Basant festival.
+- Contemporary Pakistani design sensibilities.
+- Premium editorial web design.
+- Expressive and playful typography.
+- Carefully composed product photography.
+- Layered illustrations and atmospheric visuals.
+- Purposeful animation and natural movement.
+- A professional, conversion-focused shopping experience.
+
+### Strictly avoid
+
+- Generic AI-generated website layouts.
+- Repetitive card designs throughout every section.
+- Random gradient blobs and floating circles.
+- Excessive glassmorphism.
+- Generic stock photography unrelated to Pakistani culture.
+- Emoji replacing professional visual assets.
+- Excessively rounded elements everywhere.
+- Identical compositions repeated in every section.
+- Too many simultaneous animations.
+- Fake reviews, testimonials, statistics, or customer counts.
+- Invented product information or discounts.
+- Artificial-looking human faces or visibly distorted AI-generated imagery.
+- Generic SaaS layouts and unnecessary decorative clutter.
+
+Instead, create distinct section compositions, intentional whitespace, authentic visuals, consistent typography, tasteful color blocking, natural image treatment, and a cohesive visual story.
+
+**Design principle:** Colorful does not mean chaotic. Animated does not mean everything moves. Premium means every detail feels intentional.
+
+---
+
+# 2. OFFICIAL TYPOGRAPHY SYSTEM
+
+Use the exact font combination specified in my reference image.
+
+| Website Element | Font |
+|---|---|
+| Hero Banner | Bungee |
+| Main Headings | Fredoka Bold |
+| Product Titles | Fredoka Medium |
+| Descriptions | Poppins |
+| Sale Badges | Luckiest Guy |
+| Buttons | Fredoka SemiBold |
+
+### Implementation rules
+
+- Import the fonts from Google Fonts where available.
+- Use the correct weights.
+- Hero headline: Bungee, 400.
+- Main headings: Fredoka, 700.
+- Product titles: Fredoka, 500.
+- Descriptions: Poppins, 400–500.
+- Sale badges: Luckiest Guy, 400.
+- Buttons: Fredoka, 600.
+
+Set up a centralized typography system using CSS variables.
+
+Use Bungee primarily for impactful hero typography, Fredoka for expressive headings and ecommerce elements, and Poppins for readable body text.
+
+Do not replace these fonts with generic alternatives unless necessary as a fallback.
+
+---
+
+# 3. OFFICIAL BASANT COLOR PALETTE
+
+Use the following colors from the provided reference image.
+
+| Color | Hex Code |
+|---|---|
+| Basant Yellow | #FFCC00 |
+| Festive Orange | #FF5733 |
+| Basant Pink | #F1257A |
+| Vibrant Purple | #8526C7 |
+| Celebration Green | #16A34A |
+| Sky Cyan | #06B6D4 |
+
+### Color strategy
+
+- Yellow should be the primary festive color.
+- Orange and pink should provide warmth and energy.
+- Purple should add depth and contrast.
+- Green and cyan should be used as complementary accents.
+- Use carefully designed gradients where appropriate.
+- Introduce occasional lighter or neutral backgrounds to maintain visual hierarchy.
+- Keep text readable and maintain accessible color contrast.
+
+Do not use all six colors everywhere. Give each section a deliberate color identity while maintaining consistency across the complete website.
+
+---
+
+# 4. SECTION ONE — ANNOUNCEMENT BAR
+
+Create a vibrant animated announcement bar at the top of the page.
+
+Suggested text:
+
+"BASANT SEASON IS HERE ✦ CELEBRATE IN FULL COLOR ✦"
+
+Requirements:
+
+- Use a bright background selected from the official palette.
+- Add a seamless horizontal marquee animation.
+- Use expressive, readable typography.
+- Ensure the animation has no visible gaps or sudden jumps.
+- Make the text editable.
+- Ensure it works correctly on mobile.
+- Avoid excessive height.
+
+The announcement bar should immediately establish the festive atmosphere.
+
+---
+
+# 5. SECTION TWO — PREMIUM NAVIGATION HEADER
+
+Create a polished navigation header featuring the client's actual logo.
+
+Navigation items:
+
+- Home
+- Collection
+- About Basant
+- Contact
+
+Include:
+
+- Client logo.
+- Functional navigation links.
+- A prominent Shop Now button.
+- A cart icon if a cart is implemented.
+- Smooth scrolling to relevant sections.
+
+### Header behavior
+
+The header may initially appear transparent or lightly styled over the hero and transition into a solid background when scrolling.
+
+Keep the header visually balanced, responsive, and readable against the hero background.
+
+Use the supplied logo without distortion. Do not recolor it or alter the brand identity without permission.
+
+On mobile, implement a compact navigation menu with accessible touch targets.
+
+---
+
+# 6. SECTION THREE — CINEMATIC ANIMATED HERO BANNER
+
+**This is the most important section of the entire website. Give it the highest design priority.**
+
+Create a full-width, visually memorable hero inspired by Lahore rooftops during Basant.
+
+The hero must feel like a custom-designed campaign visual, not a random image with text placed over it.
+
+## Visual direction
+
+Use a bright, warm yellow Basant sky as the primary environment.
+
+Create a carefully composed visual scene containing:
+
+- Colorful patangs flying at different depths.
+- Natural kite-string curves.
+- Lahore rooftop-inspired architecture.
+- Atmospheric clouds and warm sunlight.
+- Subtle festive decorations.
+- Layered foreground, middle ground, and background elements.
+- Carefully controlled pink, orange, purple, green, and cyan accents.
+- Realistic shadows and natural depth.
+
+Where appropriate, include people enjoying Basant on rooftops, using authentic styling and natural expressions.
+
+Use high-quality photography, carefully art-directed illustrations, or suitable custom-created visual assets.
+
+Avoid low-quality generic stock photos, artificial-looking faces, distorted hands, plastic skin, and unrealistic visual elements.
+
+The overall scene should feel distinctly Pakistani and Lahori, not like a generic international spring festival.
+
+## Hero typography
+
+Use Bungee for the main headline.
+
+Headline:
+
+"RANGON KI URAAN"
+
+Supporting text:
+
+"Celebrate Basant. Fly High. Live in Color."
+
+Primary CTA:
+
+"EXPLORE THE COLLECTION"
+
+Secondary CTA:
+
+"CELEBRATE BASANT"
+
+The primary CTA must smoothly scroll to the product collection. The secondary CTA should scroll to the Basant story or another relevant section.
+
+Keep the headline large, expressive, and readable.
+
+Position the text according to the actual composition rather than automatically centering every element. Use deliberate spacing and strong contrast.
+
+The product or campaign imagery must remain visually important.
+
+## Hero animations
+
+Implement:
+
+1. Kites moving gently across the sky.
+2. Subtle kite-string movement.
+3. Slow, layered parallax.
+4. Slight depth movement between background and foreground.
+5. Staggered headline and CTA entrance animations.
+6. Natural environmental motion.
+7. Subtle decorative movement that complements the scene.
+
+Animations must feel organic and coordinated rather than mechanical.
+
+Do not animate every element simultaneously.
+
+Use performant CSS transforms or lightweight JavaScript where practical.
+
+On mobile, simplify the composition intelligently while preserving its visual impact and readability.
+
+---
+
+# 7. SECTION FOUR — FESTIVE MARQUEE
+
+Create a full-width scrolling typography strip using contrasting colors.
+
+Suggested text:
+
+"LAHORE KI BASANT • PATANGON KI URAAN • RANGON KA JASHAN • FESTIVE VIBES ONLY •"
+
+Requirements:
+
+- Seamless infinite scrolling.
+- Expressive typography.
+- Smooth and consistent movement.
+- Contrasting background and text colors.
+- Responsive font sizing.
+- No visible jumps, gaps, or overflow.
+
+Use the marquee as a transition between the hero and shopping section.
+
+---
+
+# 8. SECTION FIVE — MAIN ECOMMERCE PRODUCT COLLECTION
+
+Create a complete ecommerce-style product collection with the heading:
+
+"THE BASANT COLLECTION"
+
+Supporting text:
+
+"Bring home the colors, joy, and spirit of Basant."
+
+This section must look professional, attractive, easy to browse, and optimized for conversions.
+
+## Product card requirements
+
+Every product card should support:
+
+- Actual product image.
+- Product name.
+- Product price in PKR.
+- Original price and sale price, when applicable.
+- Sale badge, when applicable.
+- Short product description.
+- Available sizes, colors, or variants, if relevant.
+- Actual stock status, if available.
+- Quantity selector where appropriate.
+- Add to Cart button.
+- Buy Now button only when a real checkout flow is supported.
+- Optional quick-view interaction.
+- Optional product-specific WhatsApp inquiry.
+
+Use 3–4 product cards per row on desktop and approximately 2 per row on mobile where appropriate.
+
+## Product card design
+
+- Use attractive, consistent image ratios.
+- Preserve the original aspect ratio of product images.
+- Avoid stretching or cropping products incorrectly.
+- Use carefully balanced spacing.
+- Apply subtle shadows and refined borders where appropriate.
+- Add tasteful image zoom or hover movement.
+- Use Fredoka Medium for product titles.
+- Use Poppins for descriptions.
+- Use Luckiest Guy for appropriate sale badges.
+- Use Fredoka SemiBold for buttons.
+
+Keep the cards visually cohesive without making them look like repetitive generic templates.
+
+Product imagery should be the primary focus.
+
+## Product data requirements
+
+Use actual client-provided product information.
+
+Create a centralized, editable product data structure containing the fields required by the product interface.
+
+Do not invent:
+
+- Product names.
+- Prices.
+- Discounts.
+- Product specifications.
+- Customer reviews.
+- Inventory quantities.
+- Availability claims.
+
+If product information has not been provided yet, use clearly identified development placeholders and make them easy to replace.
+
+If an existing product API or ecommerce backend is available, integrate with it instead of creating disconnected mock data.
+
+---
+
+# 9. SECTION SIX — FEATURED PRODUCT SHOWCASE
+
+Below the main collection, create a distinctive editorial-style featured product section.
+
+Use an asymmetrical layout where appropriate.
+
+Include:
+
+- A large, high-quality product image.
+- Product title.
+- Concise description.
+- Relevant product details.
+- Actual price, if available.
+- A prominent shopping CTA.
+- Subtle Basant-inspired decorative elements.
+
+Use a different visual composition from the main product grid.
+
+Allow the featured product to be selected from the centralized product data structure.
+
+Do not duplicate unnecessary content when only one product is available.
+
+---
+
+# 10. SECTION SEVEN — BASANT STORY AND BRAND EXPERIENCE
+
+Create a culturally authentic storytelling section.
+
+Heading:
+
+"MORE THAN A FESTIVAL. IT'S A FEELING."
+
+The section should communicate the joy, color, community, rooftops, and festive spirit associated with Basant in Lahore.
+
+Use a combination of:
+
+- Expressive typography.
+- Carefully selected imagery.
+- Festive patterns.
+- Kite-inspired illustrations.
+- Distinctive color blocking.
+- A short editable brand story.
+
+Give this section a different visual rhythm from the hero and product collection.
+
+Do not invent the client's brand history or make unsupported historical claims.
+
+---
+
+# 11. SECTION EIGHT — FINAL CALL-TO-ACTION
+
+Create a visually impactful closing section.
+
+Use a colorful Basant sky, carefully composed illustration, or premium festive visual.
+
+Headline:
+
+"LET THE COLORS TAKE OVER!"
+
+Supporting text:
+
+"Find your favorites and celebrate the season in style."
+
+CTA:
+
+"SHOP THE COLLECTION"
+
+The button should scroll to the main product collection.
+
+Use subtle motion, deliberate typography, and a strong visual hierarchy.
+
+Do not simply duplicate the hero design.
+
+---
+
+# 12. SECTION NINE — FOOTER
+
+Create a polished footer that includes:
+
+- Client logo.
+- Short brand description.
+- Navigation links.
+- Contact details, if provided.
+- Social media links, if provided.
+- Existing shipping and returns information, if available.
+- Privacy policy and terms links, if those pages or policies exist.
+- Copyright information.
+
+Keep the footer colorful but organized and readable.
+
+Do not invent phone numbers, email addresses, social accounts, or policy URLs.
+
+---
+
+# 13. WHATSAPP INTEGRATION — FLOATING CHAT BUTTON
+
+**A functional WhatsApp button is mandatory. Do not skip this feature.**
+
+Add a floating WhatsApp button that allows visitors to contact the client directly from anywhere on the landing page.
+
+## A. Floating WhatsApp button
+
+- Position the button at the bottom-right corner of the viewport.
+- Keep it visible while visitors scroll.
+- Use the official WhatsApp icon.
+- Use WhatsApp green: #25D366.
+- Use a recognizable white WhatsApp icon.
+- Add a subtle shadow and polished hover effect.
+- Include a gentle entrance animation.
+- On desktop, optionally show a small "Chat with us" label.
+- On mobile, use a compact, easy-to-tap button.
+- Ensure it does not overlap product buttons, checkout actions, or mobile navigation.
+- Use an accessible label such as "Chat with us on WhatsApp".
+- Keep the button above decorative elements through appropriate stacking order.
+
+The design must complement the colorful Basant website while preserving the recognizable WhatsApp branding.
+
+Do not make the button excessively large, flashy, or distracting.
+
+## B. WhatsApp phone number configuration
+
+Use the official WhatsApp click-to-chat URL format:
+
+`https://wa.me/WHATSAPP_NUMBER?text=ENCODED_MESSAGE`
+
+Requirements:
+
+- Use the client's actual WhatsApp number.
+- Do not invent or assume the phone number.
+- Until the number is provided, use a clearly marked configuration placeholder.
+- For Pakistani numbers, use country code `92`, without the leading zero, spaces, or plus sign.
+- Keep the number in one centralized configuration variable or suitable environment-based configuration.
+- Generate the message using JavaScript URL encoding.
+- Open the correct WhatsApp conversation using a valid URL.
+- Use an appropriate new-tab behavior for external links.
+
+Example configuration placeholder:
+
+`WHATSAPP_NUMBER = "REPLACE_WITH_CLIENT_NUMBER"`
+
+Ensure the implementation is easy to configure after the client provides their number.
+
+## C. Default WhatsApp message
+
+Use the following pre-filled message for the floating button:
+
+"Assalam-o-Alaikum! I'm interested in your Basant Collection. Please share more details."
+
+When the visitor clicks the button, WhatsApp should open with this message already populated.
+
+Do not automatically send messages. The visitor must review and send the message themselves.
+
+## D. Product-specific WhatsApp inquiry buttons
+
+Add an optional "Inquire on WhatsApp" or "Order via WhatsApp" button to each product card or product detail interaction.
+
+When clicked, dynamically create a WhatsApp message using the actual product data.
+
+Example:
+
+"Assalam-o-Alaikum! I'm interested in [Product Name] from your Basant Collection. Please share its price and availability."
+
+If the product has actual selectable variants, include the selected size, color, or variant in the message.
+
+If the actual product price is available, it may also be included. Never invent missing prices or variants.
+
+Use the centralized product data structure. Do not hardcode separate messages for individual products.
+
+## E. WhatsApp functionality and limitations
+
+The WhatsApp integration should open a conversation with the client's configured business number.
+
+It does not automatically process payments, reserve stock, create Shopify orders, or complete checkout unless those features are separately implemented.
+
+Do not describe the website as having fully automated WhatsApp ordering when it only opens a pre-filled chat.
+
+## F. WhatsApp testing
+
+Verify:
+
+1. The floating button appears on desktop and mobile.
+2. The configured phone number produces a valid WhatsApp URL.
+3. The default message is correctly encoded.
+4. Product inquiry messages contain the correct product name.
+5. Selected variants are included when relevant.
+6. The button does not obstruct other important interactions.
+7. The link opens correctly and leaves message sending under the visitor's control.
+
+---
+
+# 14. ANIMATION AND MOTION DESIGN SYSTEM
+
+The website must feel alive, immersive, and interactive without sacrificing performance or usability.
+
+Implement the following where appropriate:
+
+1. Floating kites in the hero.
+2. Subtle kite-string movement.
+3. Layered parallax.
+4. Staggered hero typography.
+5. Seamless announcement marquee.
+6. Seamless festive marquee.
+7. Refined product image hover effects.
+8. Button hover and press states.
+9. Scroll-triggered section reveals.
+10. Sticky header transitions.
+11. Subtle decorative environmental movement.
+12. Floating WhatsApp button entrance and hover effects.
+
+### Motion quality rules
+
+- Use natural easing.
+- Vary animation timing according to the element.
+- Avoid repetitive, mechanical movements.
+- Avoid flashing, excessive spinning, or unnecessary bouncing.
+- Do not animate every element at once.
+- Keep animations lightweight.
+- Respect `prefers-reduced-motion`.
+- Simplify animations on mobile.
+- Avoid layout shifts caused by animation.
+- Prefer CSS transforms for decorative movement.
+- Use IntersectionObserver where suitable for scroll-triggered reveals.
+
+Animation should reinforce the visual storytelling, not distract visitors from the products.
+
+---
+
+# 15. RESPONSIVE DESIGN REQUIREMENTS
+
+The website must be intentionally designed for desktop, tablet, and mobile.
+
+## Desktop
+
+- Large, immersive hero.
+- Layered background and foreground visuals.
+- Expressive typography.
+- Full product grid.
+- Distinct editorial layouts.
+- Smooth hover interactions.
+- Visible floating WhatsApp button.
+
+## Tablet
+
+- Balanced typography.
+- Reorganized product grid.
+- Properly scaled illustrations.
+- Comfortable spacing.
+- Simplified animation where needed.
+
+## Mobile
+
+- Full-width, visually engaging hero.
+- Readable headline and CTAs.
+- Optimized kite and rooftop visuals.
+- Compact navigation.
+- Approximately two product cards per row where practical.
+- Easy-to-tap product buttons.
+- Floating WhatsApp button that does not obstruct shopping.
+- No clipped text.
+- No horizontal overflow.
+- Optimized images and reduced decorative complexity.
+
+Do not simply shrink the desktop layout. Recompose each section intelligently for smaller screens.
+
+---
+
+# 16. TECHNICAL IMPLEMENTATION REQUIREMENTS
+
+Before coding:
+
+1. Inspect the existing project.
+2. Identify the framework and dependencies.
+3. Inspect the existing assets and logo.
+4. Understand the current routing and entry points.
+5. Preserve working functionality.
+6. Plan the component structure before making extensive changes.
+
+During implementation:
+
+- Use the existing framework and conventions.
+- Use reusable components.
+- Organize styling and product data clearly.
+- Use semantic HTML.
+- Provide accessible labels and keyboard support.
+- Optimize image loading.
+- Lazy-load below-the-fold images.
+- Prevent cumulative layout shifts.
+- Keep interactions responsive.
+- Ensure the page works in desktop and mobile browsers.
+- Avoid unnecessary dependencies.
+- Prevent console errors.
+- Prevent horizontal overflow.
+
+If the existing project has a product API or ecommerce backend, integrate with it where appropriate.
+
+If no backend exists, implement a functional frontend with centralized product data and a client-side cart where practical.
+
+Do not claim that checkout, payments, inventory, or order creation work unless they are actually connected and tested.
+
+---
+
+# 17. FINAL QUALITY ASSURANCE
+
+After implementing the website, run it and inspect the actual result.
+
+Check:
+
+1. The website starts successfully.
+2. All fonts are loaded correctly.
+3. The exact six color values are used appropriately.
+4. The supplied logo displays correctly.
+5. The hero looks distinctive and professionally art-directed.
+6. Kite animations work smoothly.
+7. Marquees scroll seamlessly.
+8. Navigation links reach the correct sections.
+9. Product images load without distortion.
+10. Product information comes from the correct data source.
+11. Product buttons behave as intended.
+12. WhatsApp buttons open the correct chat URL.
+13. Product-specific inquiry messages contain correct information.
+14. The layout works on desktop, tablet, and mobile.
+15. No horizontal scrolling or clipped content exists.
+16. The floating WhatsApp button does not obstruct important elements.
+17. There are no broken assets or significant console errors.
+18. Reduced-motion preferences are respected.
+19. The website does not resemble a generic AI-generated template.
+
+If any part looks generic, repetitive, artificial, cluttered, or unfinished, improve it before completion.
+
+Do not stop after creating a wireframe or static mockup. Implement the actual website, run it, inspect the result, and fix visible issues.
+
+---
+
+# FINAL DELIVERABLE
+
+Deliver one complete, fully implemented, long-scrolling Basant landing page featuring:
+
+- A spectacular animated hero with a yellow sky, colorful kites, and Lahore rooftop-inspired visuals.
+- The exact provided font combination.
+- The exact provided Basant color palette.
+- A premium navigation header.
+- Animated announcement and festive marquee strips.
+- A detailed ecommerce-style product collection.
+- An editorial featured-product showcase.
+- A culturally authentic Basant storytelling section.
+- A strong final shopping CTA.
+- A polished footer.
+- A persistent floating WhatsApp button.
+- Product-specific WhatsApp inquiry functionality.
+- Smooth, purposeful animations.
+- Responsive desktop, tablet, and mobile layouts.
+- Maintainable code and properly organized product data.
+
+The final result should feel like an original, professionally designed Pakistani Basant campaign — colorful, premium, culturally authentic, visually memorable, conversion-focused, and unmistakably custom-designed.
+
+**Do not deliver a generic AI website. Build, run, inspect, and refine the actual working website.**

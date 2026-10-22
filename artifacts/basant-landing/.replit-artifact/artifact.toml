@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Basant Landing Page"
+description = "A vibrant, responsive Basant campaign storefront for browsing a festive collection and contacting the brand through WhatsApp."
+version = "1.0.0"
+id = "artifacts/basant-landing"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23075
+
+[services.development]
+run = "pnpm --filter @workspace/basant-landing run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/basant-landing", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/basant-landing/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23075"
+BASE_PATH = "/"

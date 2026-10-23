@@ -17,7 +17,7 @@ function DecorativeKite({ className, color, secondColor = '#FFCC00', size = 48 }
 }
 
 function ProductArtwork({ product }: { product: Product }) {
-  return <div className="product-art product-photo-art" aria-label={`${product.name} product photo`} role="img"><img className="product-photo" src={product.image} alt="" loading="lazy" decoding="async" /></div>;
+  return <div className="product-art product-photo-art" aria-label={`${product.name} product photo`} role="img"><img className="product-photo" src={product.image} alt="" loading="eager" decoding="async" /></div>;
 }
 
 function Header() {

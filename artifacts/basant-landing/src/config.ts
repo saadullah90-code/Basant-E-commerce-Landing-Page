@@ -3,18 +3,17 @@ export type Product = {
   name: string;
   category: string;
   description: string;
-  imageTone: string;
-  accent: string;
-  detail: string;
-  placeholder: true;
+  image: string;
 };
 
-// Replace placeholders only with client-approved product facts.
 export const PRODUCTS: Product[] = [
-  { id: 'kite-01', name: 'Product placeholder 01', category: 'Details TBC', description: 'Development placeholder. Product information, price and availability are awaiting client confirmation.', imageTone: '#FFCC00', accent: '#FF5733', detail: 'Product details to be supplied by the client.', placeholder: true },
-  { id: 'kite-02', name: 'Product placeholder 02', category: 'Details TBC', description: 'Development placeholder. Product information, price and availability are awaiting client confirmation.', imageTone: '#F1257A', accent: '#8526C7', detail: 'Product details to be supplied by the client.', placeholder: true },
-  { id: 'kite-03', name: 'Product placeholder 03', category: 'Details TBC', description: 'Development placeholder. Product information, price and availability are awaiting client confirmation.', imageTone: '#06B6D4', accent: '#FFCC00', detail: 'Product details to be supplied by the client.', placeholder: true },
-  { id: 'kite-04', name: 'Product placeholder 04', category: 'Details TBC', description: 'Development placeholder. Product information, price and availability are awaiting client confirmation.', imageTone: '#8526C7', accent: '#16A34A', detail: 'Product details to be supplied by the client.', placeholder: true },
+  { id: 'kite-01', name: 'Kite String Assortment', category: 'KITE STRING', description: 'A colourful kite-string assortment. Ask us about price and availability.', image: '/products/kite-string-assortment.webp' },
+  { id: 'kite-02', name: 'Mixed Patang Set', category: 'PATANG SET', description: 'A selection of colourful patangs. Ask us about price and availability.', image: '/products/mixed-patang-set.webp' },
+  { id: 'kite-03', name: 'Colourful Patang Mix', category: 'PATANG SET', description: 'A bright mix of Basant colours. Ask us about price and availability.', image: '/products/colorful-patang-mix.webp' },
+  { id: 'kite-04', name: 'Maroon Special Patang', category: 'SPECIAL PATANG', description: 'A distinctive maroon design. Ask us about price and availability.', image: '/products/maroon-special-patang.webp' },
+  { id: 'kite-05', name: 'Black & Gold Patang', category: 'DESIGN PATANG', description: 'A black patang with gold details. Ask us about price and availability.', image: '/products/black-gold-patang.webp' },
+  { id: 'kite-06', name: 'Striped Colour Patang', category: 'DESIGN PATANG', description: 'A bright striped patang. Ask us about price and availability.', image: '/products/striped-color-patang.webp' },
+  { id: 'kite-07', name: 'Magenta Pattern Patang', category: 'DESIGN PATANG', description: 'A magenta, white and black design. Ask us about price and availability.', image: '/products/magenta-pattern-patang.webp' },
 ];
 
 export const FEATURED_PRODUCT_ID = 'kite-01';

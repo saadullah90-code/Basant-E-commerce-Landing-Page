@@ -623,7 +623,9 @@
 .hero.hero-banner { padding-top:124px; }
 .hero-banner h1.visually-hidden { position:absolute; }
 .hero-banner-frame { position:relative; isolation:isolate; width:100%; max-width:1920px; margin:0 auto; overflow:hidden; background:#56b5ee; }
+.hero-banner-picture { display:block; width:100%; }
 .hero-banner-image { display:block; width:100%; height:auto; }
+.hero-banner-frame .banner-kite-one,.hero-banner-frame .banner-kite-two { display:none; }
 .hero-banner-frame .ambient-kite { z-index:3; opacity:1; }
 .banner-kite-one { top:8%; left:8%; animation-duration:6.5s; }
 .banner-kite-two { top:39%; right:5%; animation-duration:8s; animation-delay:-2.5s; }

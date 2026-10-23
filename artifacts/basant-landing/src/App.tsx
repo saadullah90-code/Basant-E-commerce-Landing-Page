@@ -114,17 +114,9 @@ function App() {
       }
       if (!entry.isIntersecting) return;
       if (target.classList.contains('reveal')) target.classList.add('is-visible');
-      if (target.classList.contains('text-reveal')) target.classList.add('text-visible');
       observer.unobserve(target);
-    }), { threshold: 0.08, rootMargin: '70px 0px' });
+    }), { threshold: 0.12, rootMargin: '0px 0px -32px 0px' });
     document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
-    const textTargets = document.querySelectorAll<HTMLElement>('h1,h2,h3,p,a,button,th,td,.announce-unit,.ticker-unit,.product-poster-head,.product-meta,.placeholder-tag,.product-card-sparkle,.step-number,.note-stamp,.footer-year,.footer-tagline');
-    textTargets.forEach((element, index) => {
-      if (!element.textContent?.trim()) return;
-      element.classList.add('text-reveal');
-      element.style.setProperty('--text-delay', `${(index % 5) * 35}ms`);
-      observer.observe(element);
-    });
     document.querySelectorAll<HTMLElement>('.ambient-kite,.product-art').forEach((element) => {
       element.classList.add('motion-watch');
       observer.observe(element);

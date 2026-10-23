@@ -118,7 +118,7 @@ function App() {
       observer.unobserve(target);
     }), { threshold: 0.08, rootMargin: '70px 0px' });
     document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
-    const textTargets = document.querySelectorAll<HTMLElement>('h1,h2,h3,p,a,button,.announce-unit,.ticker-unit,.product-poster-head,.product-meta,.placeholder-tag,.product-card-sparkle,.step-number,.note-stamp,.footer-year,.footer-tagline');
+    const textTargets = document.querySelectorAll<HTMLElement>('h1,h2,h3,p,a,button,th,td,.announce-unit,.ticker-unit,.product-poster-head,.product-meta,.placeholder-tag,.product-card-sparkle,.step-number,.note-stamp,.footer-year,.footer-tagline');
     textTargets.forEach((element, index) => {
       if (!element.textContent?.trim()) return;
       element.classList.add('text-reveal');
@@ -141,7 +141,40 @@ function App() {
     <main>
       <section className="hero hero-banner" aria-labelledby="hero-title"><h1 className="visually-hidden" id="hero-title">Premium Basant Collection — URR Lahore</h1><div className="hero-banner-frame"><picture className="hero-banner-picture"><source media="(max-width: 700px)" srcSet="/basant-campaign-banner-mobile.webp" type="image/webp" /><img className="hero-banner-image" src="/basant-campaign-banner.webp" alt="Premium Basant Collection banner with colorful kites above Lahore rooftops and kite-string spools" fetchPriority="high" /></picture><DecorativeKite className="banner-kite-one" color="#F1257A" secondColor="#FFCC00" size={38} /><DecorativeKite className="banner-kite-two" color="#06B6D4" secondColor="#FF5733" size={47} /></div><div className="hero-banner-actions"><p>URR LAHORE <span>/ BASANT 2026</span></p><div className="hero-banner-links"><a className="button button-dark" href="#collection">EXPLORE THE COLLECTION <ArrowDownRight size={17} /></a><a className="button hero-banner-secondary" href="#feeling">DISCOVER THE STORY <ArrowRight size={16} /></a></div></div></section>
       <div className="ticker" aria-label="Basant. Lahore. Sky full of color."><div className="ticker-track marquee-track" aria-hidden="true">{Array.from({ length: 4 }, (_, index) => <span className="ticker-unit" key={index}>BASANT <i>✳</i> LAHORE <b>✦</b> SKY FULL OF COLOR <i>✳</i></span>)}</div></div>
-      <section className="collection section-pad" id="collection" aria-labelledby="collection-title"><DecorativeKite className="collection-kite kite-pop" color="#F1257A" secondColor="#FFCC00" size={46} /><div className="section-heading reveal"><div><p className="eyebrow"><span className="eyebrow-mark">02</span> THE COLLECTION</p><h2 className="heading" id="collection-title">THE BASANT COLLECTION</h2></div><p className="section-intro">Made for the season. Reserved for the celebration.</p></div><div className="product-grid">{PRODUCTS.map((product, index) => <ProductCard key={product.id} product={product} index={index + 1} onUnavailable={() => setNotice(`WhatsApp pre-orders are not available yet. ${WHATSAPP_PLACEHOLDER}.`)} />)}</div><div className="collection-note reveal"><span className="note-stamp sale-font">MADE<br />FOR SKY</span><p>Message us on WhatsApp to confirm prices and availability for items in this collection.</p><span className="note-doodle"><Wind size={29} /></span></div></section>
+      <section className="collection section-pad" id="collection" aria-labelledby="collection-title">
+        <DecorativeKite className="collection-kite kite-pop" color="#F1257A" secondColor="#FFCC00" size={46} />
+        <div className="section-heading reveal">
+          <div>
+            <p className="eyebrow"><span className="eyebrow-mark">02</span> THE COLLECTION</p>
+            <h2 className="heading" id="collection-title">THE BASANT COLLECTION</h2>
+          </div>
+          <p className="section-intro">Made for the season. Reserved for the celebration.</p>
+        </div>
+        <div className="product-grid">
+          {PRODUCTS.map((product, index) => <ProductCard key={product.id} product={product} index={index + 1} onUnavailable={() => setNotice(`WhatsApp pre-orders are not available yet. ${WHATSAPP_PLACEHOLDER}.`)} />)}
+        </div>
+        <div className="size-guide reveal">
+          <div className="size-guide-heading">
+            <p className="eyebrow"><span className="eyebrow-mark">SIZE GUIDE</span></p>
+            <h3 className="heading">Available Sizes</h3>
+          </div>
+          <div className="size-table-wrap">
+            <table className="size-table">
+              <caption className="visually-hidden">Basant item sizes</caption>
+              <thead>
+                <tr><th scope="col">ITEM</th><th scope="col">SIZE</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>GUDDA</td><td>1 tawa</td></tr>
+                <tr><td>GUDDA</td><td>1.5 Tawa</td></tr>
+                <tr><td>PATANG</td><td>4.5 GITHI</td></tr>
+                <tr><td>PINNA</td><td>2 PIECE</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div className="collection-note reveal"><span className="note-stamp sale-font">MADE<br />FOR SKY</span><p>Message us on WhatsApp to confirm prices and availability for items in this collection.</p><span className="note-doodle"><Wind size={29} /></span></div>
+      </section>
       {featured && <section className="featured-section" aria-labelledby="featured-title"><DecorativeKite className="featured-kite" color="#06B6D4" secondColor="#FF5733" size={48} /><div className="featured-art reveal"><ProductArtwork product={featured} /><span className="featured-stamp sale-font">A CLOSER<br />LOOK</span></div><div className="featured-copy reveal"><p className="eyebrow"><span className="eyebrow-mark">FEATURED / BASANT COLLECTION</span></p><h2 className="heading" id="featured-title">{featured.name}</h2><p>{featured.description}</p><p className="featured-details">Confirm current details and availability through WhatsApp.</p><div className="featured-actions"><WhatsAppButton message={productWhatsAppMessage(featured.name)} onUnavailable={() => setNotice(`WhatsApp pre-orders are not available yet. ${WHATSAPP_PLACEHOLDER}.`)}>PRE-ORDER ON WHATSAPP</WhatsAppButton></div></div></section>}
       <section className="feeling" id="feeling" aria-labelledby="feeling-title"><DecorativeKite className="feeling-kite kite-pop" color="#FF5733" secondColor="#FFCC00" size={44} /><div className="feeling-image reveal"><img src="/lahore-rooftop-basant.png" alt="Colorful kites drift over a layered illustration of Lahore rooftops" loading="lazy" /><div className="feeling-image-label"><span>LAHORE / LATE AFTERNOON</span><span>THE ROOFTOP IS THE PLACE</span></div><div className="feeling-scribble">up, up<br />and away</div></div><div className="feeling-copy reveal"><p className="eyebrow"><span className="eyebrow-mark">03</span> THE FEELING</p><h2 className="heading" id="feeling-title">MORE THAN A FESTIVAL.<br /><em>IT’S A FEELING.</em></h2><p className="large-copy">There’s a moment when the rooftops turn gold, the breeze finds its way between old walls, and every pair of eyes tilts upward.</p><p className="body-copy">That’s the feeling we’re holding onto. Lahore, seen from above: close rooftops, faraway domes, a paper kite tugging at the day. No grand claims. Just a little love for a city that knows how to look up.</p><a className="text-link" href="#preorder">How pre-ordering works <ArrowRight size={17} /></a></div><span className="feeling-number">II</span></section>
       <section className="color-strip" aria-label="A sky of Basant colors"><div className="color-strip-inner"><span>THE COLORS OF A DAY WELL SPENT</span><div className="color-dots" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div><span>TAKE THE LONG WAY HOME</span></div></section>

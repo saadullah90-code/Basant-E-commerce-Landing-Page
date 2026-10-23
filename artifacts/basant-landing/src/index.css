@@ -192,6 +192,14 @@
 .note-stamp { display:grid; place-content:center; flex:none; width:54px;height:54px; border:1px solid var(--tomato); border-radius:50%; color:var(--tomato); text-align:center; transform:rotate(-10deg); font:400 8px/1.4 'Bungee',sans-serif; }
 .collection-note p { font-size:10px; line-height:1.7; margin:0; max-width:500px; }
 .note-doodle { margin-left:auto; color:var(--sky); }
+.size-guide { display:grid; grid-template-columns:minmax(190px,.72fr) minmax(0,1.28fr); align-items:center; gap:32px; max-width:960px; margin:44px auto 0; padding:26px; background:#f4e6c8; border:1px solid rgba(48,32,20,.24); box-shadow:6px 6px 0 var(--sun); }
+.size-guide-heading .eyebrow { margin-bottom:9px; }
+.size-guide-heading h3 { margin:0; font-size:clamp(28px,3.4vw,42px); line-height:.98; }
+.size-table-wrap { min-width:0; overflow-x:auto; }
+.size-table { width:100%; border-collapse:collapse; color:var(--ink); text-align:left; }
+.size-table th,.size-table td { padding:11px 14px; border:1px solid rgba(48,32,20,.2); }
+.size-table th { background:var(--sun); font:600 10px 'Poppins',sans-serif; letter-spacing:.1em; }
+.size-table td { background:#fffdf4; font:500 11px 'Poppins',sans-serif; }
 .featured-section { display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:8vw; padding:88px 11vw 96px; background:#f4e6c8; }
 .featured-art { position:relative; padding:13px; background:var(--paper); border:1.5px solid var(--ink); box-shadow:9px 10px 0 var(--pink); transform:rotate(-2deg); }
 .featured-art .product-art { aspect-ratio:1.2; }
@@ -310,6 +318,9 @@
   .product-card-actions { align-items:flex-start; flex-direction:column; gap:9px; }
   .button-small { font-size:9px; padding:7px 8px; }
   .inquiry-link { padding-top:4px; }
+  .size-guide { grid-template-columns:1fr; gap:16px; margin-top:30px; padding:18px 15px; }
+  .size-guide-heading h3 { font-size:30px; }
+  .size-table th,.size-table td { padding:10px 11px; }
   .collection-note { margin-top:28px; gap:12px; }
   .collection-note p { font-size:9px; }
   .featured-section { grid-template-columns:1fr; gap:34px; padding:64px 28px 70px; }

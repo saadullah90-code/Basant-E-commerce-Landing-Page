@@ -1,16 +1,76 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Menu, Wind, X } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { DEFAULT_WHATSAPP_MESSAGE, FEATURED_PRODUCT_ID, PRODUCTS, TEMPORARY_BRAND_NAME, WHATSAPP_NUMBER, WHATSAPP_PLACEHOLDER, productWhatsAppMessage, type Product } from './config';
 
+const ANNOUNCEMENT_ITEMS = ['BASANT SEASON', 'LAHORE IN FULL COLOR'];
 const TICKER_PHRASES = [
-  'BASANT',
-  'LAHORE',
-  'SKY FULL OF COLOR',
-  'Rang Lahore de, khaabe taur de',
-  'Guddi, Dor te khaba – udaayi ja, khaayi ja',
-  'Pecha vi, Khabba vi',
+  '1. Rang Lahore de, khaabe taur de',
+  '2. Guddi, Dor te khaba – udaayi ja, khaayi ja',
+  '3. Pecha vi, Khabba vi',
 ];
+
+function ContinuousMarquee({
+  variant,
+  items,
+  label,
+  speed,
+}: {
+  variant: 'announcement' | 'ticker';
+  items: string[];
+  label: string;
+  speed: number;
+}) {
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const measureRef = useRef<HTMLDivElement>(null);
+  const [copiesPerSegment, setCopiesPerSegment] = useState(2);
+  const [duration, setDuration] = useState(42);
+
+  useEffect(() => {
+    const measure = () => {
+      const itemRunWidth = measureRef.current?.scrollWidth ?? 0;
+      const viewportWidth = viewportRef.current?.clientWidth ?? window.innerWidth;
+      if (!itemRunWidth || !viewportWidth) return;
+
+      // Each half of the track must be wider than the viewport so no blank
+      // space appears while the next identical half scrolls into place.
+      const nextCopies = Math.max(2, Math.ceil(viewportWidth / itemRunWidth) + 1);
+      const segmentWidth = itemRunWidth * nextCopies;
+      setCopiesPerSegment((current) => current === nextCopies ? current : nextCopies);
+      setDuration((current) => Math.abs(current - segmentWidth / speed) < 0.1 ? current : segmentWidth / speed);
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    if (viewportRef.current) observer.observe(viewportRef.current);
+    if (measureRef.current) observer.observe(measureRef.current);
+    void document.fonts?.ready.then(measure);
+    return () => observer.disconnect();
+  }, [items, speed]);
+
+  const renderItems = (keyPrefix: string) => items.map((item, index) => (
+    <span className={variant === 'announcement' ? 'announce-unit' : 'ticker-unit'} key={`${keyPrefix}-${index}`}>
+      {item}
+      <i>{variant === 'announcement' ? '✦' : index % 2 ? '✦' : '✳'}</i>
+    </span>
+  ));
+  const trackStyle = { '--marquee-duration': `${duration}s` } as CSSProperties;
+
+  return (
+    <div ref={viewportRef} className={variant} aria-label={label}>
+      <div className={`${variant === 'announcement' ? 'announce-track' : 'ticker-track'} marquee-track`} style={trackStyle} aria-hidden="true">
+        {[0, 1].map((segment) => (
+          <div className={`${variant}-group marquee-segment`} key={segment} aria-hidden="true">
+            {Array.from({ length: copiesPerSegment }, (_, copy) => renderItems(`${segment}-${copy}`))}
+          </div>
+        ))}
+      </div>
+      <div className={`marquee-measure ${variant}-group`} ref={measureRef} aria-hidden="true">
+        {renderItems('measure')}
+      </div>
+    </div>
+  );
+}
 
 function whatsappUrl(message: string) {
   const number = WHATSAPP_NUMBER.replace(/\D/g, '');
@@ -138,11 +198,7 @@ function App() {
   const featured = PRODUCTS.find((product) => product.id === FEATURED_PRODUCT_ID);
 
   return <div className="page-shell grain" id="top">
-    <div className="announcement" aria-label="Basant season. Celebrate in full color.">
-      <div className="announce-track marquee-track" aria-hidden="true">
-        {[0, 1].map((group) => <div className="announce-group" key={group}>{Array.from({ length: 2 }, (_, index) => <span className="announce-unit" key={index}>BASANT SEASON <i>✦</i> LAHORE IN FULL COLOR <i>✦</i></span>)}</div>)}
-      </div>
-    </div>
+    <ContinuousMarquee variant="announcement" items={ANNOUNCEMENT_ITEMS} label="Basant season. Celebrate in full color." speed={48} />
     <Header />
     <main>
       <section className="hero hero-banner" aria-labelledby="hero-title">
@@ -164,11 +220,12 @@ function App() {
           </div>
         </div>
       </section>
-      <div className="ticker" aria-label="Basant, Lahore, sky full of color. Rang Lahore de, khaabe taur de. Guddi, Dor te khaba – udaayi ja, khaayi ja. Pecha vi, Khabba vi.">
-        <div className="ticker-track marquee-track">
-          {[0, 1].map((group) => <div className="ticker-group" key={group} aria-hidden="true">{TICKER_PHRASES.map((phrase, index) => <span className="ticker-unit" key={`${group}-${index}`}>{phrase}<i>{index % 2 ? '✦' : '✳'}</i></span>)}</div>)}
-        </div>
-      </div>
+      <ContinuousMarquee
+        variant="ticker"
+        items={TICKER_PHRASES}
+        label="1. Rang Lahore de, khaabe taur de. 2. Guddi, Dor te khaba – udaayi ja, khaayi ja. 3. Pecha vi, Khabba vi."
+        speed={42}
+      />
       <section className="collection section-pad" id="collection" aria-labelledby="collection-title">
         <DecorativeKite className="collection-kite kite-pop" color="#F1257A" secondColor="#FFCC00" size={46} />
         <div className="section-heading reveal">

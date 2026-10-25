@@ -87,7 +87,15 @@ function DecorativeKite({ className, color, secondColor = '#FFCC00', size = 48 }
 }
 
 function ProductArtwork({ product }: { product: Product }) {
-  return <div className="product-art product-photo-art" aria-label={`${product.name} product photo`} role="img"><img className="product-photo" src={product.image} alt="" loading="eager" decoding="async" /></div>;
+  const images = [product.image, ...(product.gallery ?? [])];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const hasGallery = images.length > 1;
+  return <div className="product-art product-photo-art" aria-label={`${product.name} ${hasGallery ? 'product photo gallery' : 'product photo'}`} role={hasGallery ? 'group' : 'img'}>
+    <img className="product-photo" src={images[activeIndex]} alt={hasGallery ? `${product.name} design ${activeIndex + 1} of ${images.length}` : ''} loading="eager" decoding="async" />
+    {hasGallery && <div className="product-photo-switcher" role="group" aria-label={`Choose ${product.name} design`}>
+      {images.map((image, index) => <button key={image} className="product-photo-thumb" type="button" aria-label={`Show ${product.name} design ${index + 1}`} aria-pressed={activeIndex === index} onClick={() => setActiveIndex(index)}><img src={image} alt="" loading="lazy" decoding="async" /></button>)}
+    </div>}
+  </div>;
 }
 
 function Header() {

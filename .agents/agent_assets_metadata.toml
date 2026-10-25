@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "zwMaMd0Jdev6Guz1KMmVY"
+uri = "file://attached_assets/basant-poster-product-card-kites-final.png"
+type = "image"
+title = "Basant poster with product-card kites"
+description = "The poster artwork with the original rooftop, text, and layout preserved; kites changed to match the Patang and Gudda product-card styles."
+logical_id = "3e58726f-fb47-4b00-88bb-b81b35f848ce"
+content_hash = "sha256:4615d9c0d8647afee77575750ab2e18c92b50af679cd195526c8d451901664d7"
+size = 1702520
+mtime_ms = 1792932234875
+storage_uri = "gcs://replit-rams-assets-pike/rams/assets/repl:e933e27b-cd32-4237-af29-40b53e708bea/3e58726f-fb47-4b00-88bb-b81b35f848ce/2898e59b-3b19-421d-8ca4-242b98e89cdd"
+storage_version_token = "1792932286756565"
+content_type = "image/png"

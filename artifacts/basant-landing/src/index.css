@@ -655,7 +655,6 @@
 .hero-banner-frame { position:relative; isolation:isolate; width:100%; max-width:1920px; margin:0 auto; overflow:hidden; background:#56b5ee; }
 .hero-banner-picture { display:block; width:100%; }
 .hero-banner-image { display:block; width:100%; height:auto; }
-.hero-banner-contact-label { position:absolute; z-index:4; top:76.8%; left:55.4%; width:9.2%; height:5%; display:grid; place-items:center; overflow:hidden; border-radius:2px; background:#ffe5ad; color:#15110c; font:600 clamp(6px,.7vw,8px)/1 'Poppins',sans-serif; letter-spacing:.035em; white-space:nowrap; }
 .hero-banner-frame .banner-kite-one,.hero-banner-frame .banner-kite-two { display:none; }
 .hero-banner-frame .ambient-kite { z-index:3; opacity:1; }
 .banner-kite-one { top:8%; left:8%; animation-duration:6.5s; }
@@ -727,9 +726,6 @@
 @media (max-width:390px) {
   .hero-banner-links { width:100%; flex-direction:column; align-items:stretch; }
   .hero-banner-links .button { width:100%; }
-}
-@media (max-width:700px) {
-  .hero-banner-contact-label { top:39.3%; left:61.5%; width:17%; height:2.3%; font-size:clamp(6px,1.5vw,8px); }
 }
 @media (prefers-reduced-motion: reduce) {
   .mobile-nav a,.ambient-kite,.kite-float { animation:none !important; }

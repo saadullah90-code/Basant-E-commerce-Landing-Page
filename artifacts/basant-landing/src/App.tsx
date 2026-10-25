@@ -223,7 +223,7 @@ function App() {
         <div className="hero-banner-frame">
           <picture className="hero-banner-picture">
             <source media="(max-width: 700px)" srcSet="/basant-campaign-banner-mobile.webp" type="image/webp" />
-            <img className="hero-banner-image" src="/basant-campaign-banner.webp" alt="Premium Basant Collection banner with colorful kites above Lahore rooftops and kite-string spools" fetchPriority="high" />
+            <img className="hero-banner-image" src="/basant-campaign-banner.webp" alt="Urr Lahore Basant banner with colorful kites, Lahore skyline, and live barbecue and kitchen setup" fetchPriority="high" />
           </picture>
           <DecorativeKite className="banner-kite-one" color="#F1257A" secondColor="#FFCC00" size={38} />
           <DecorativeKite className="banner-kite-two" color="#06B6D4" secondColor="#FF5733" size={47} />

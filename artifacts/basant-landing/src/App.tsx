@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Menu, Wind, X } from 'lucide-react';
-import { FaWhatsapp } from 'react-icons/fa';
 import { DEFAULT_WHATSAPP_MESSAGE, FEATURED_PRODUCT_ID, PRODUCTS, TEMPORARY_BRAND_NAME, WHATSAPP_NUMBER, WHATSAPP_PLACEHOLDER, productWhatsAppMessage, type Product } from './config';
 
 const TICKER_PHRASES = [
-  '1. Rang Lahore de, khaabe taur de',
-  '2. Guddi, Dor te khaba – udaayi ja, khaayi ja',
-  '3. Pecha vi, Khabba vi',
+  'Rang Lahore de, khaabe taur de',
+  'Guddi, Dor te khaba – udaayi ja, khaayi ja',
+  'Pecha vi, Khabba vi',
 ];
 const ANNOUNCEMENT_ITEMS = ['BASANT SEASON', 'LAHORE IN FULL COLOR', ...TICKER_PHRASES];
 const ANNOUNCEMENT_LABEL = ['Basant season', 'Lahore in full color', ...TICKER_PHRASES].join('. ');
@@ -122,13 +121,13 @@ function Header() {
       if (frame) window.cancelAnimationFrame(frame);
     };
   }, []);
-  const links = [['Home', '#top'], ['Collection', '#collection'], ['Our story', '#feeling'], ['Pre-order', '#preorder'], ['Contact', '#contact']];
+  const links = [['Home', '#top'], ['Collection', '#collection'], ['Our story', '#feeling'], ['Contact', '#contact']];
   return <header className={`site-header ${scrolled ? 'header-scrolled' : ''}`}><div className="header-inner"><a className="brand-lockup focus-ring" href="#top" aria-label={`${TEMPORARY_BRAND_NAME} home`}><img src="/urr-lahore-logo-tight.png" alt="URR Lahore" /></a><nav className="desktop-nav" aria-label="Main navigation">{links.map(([label, href]) => <a href={href} key={href}>{label}</a>)}</nav><a className="button button-dark header-collection-cta" href="#collection">SHOP COLLECTION <ArrowDownRight size={15} /></a><button className="mobile-menu-button focus-ring" aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={menuOpen} type="button" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={22} /> : <Menu size={22} />}</button></div>{menuOpen && <nav className="mobile-nav" aria-label="Mobile navigation">{links.map(([label, href]) => <a href={href} key={href} onClick={() => setMenuOpen(false)}>{label}<ArrowUpRight size={16} /></a>)}<a className="mobile-collection-cta" href="#collection" onClick={() => setMenuOpen(false)}>SHOP COLLECTION <ArrowDownRight size={16} /></a></nav>}</header>;
 }
 
 function WhatsAppButton({ message, className = '', onUnavailable, children }: { message: string; className?: string; onUnavailable: () => void; children: ReactNode }) {
   const link = whatsappUrl(message);
-  return <button className={`button whatsapp-action ${className}`} type="button" aria-label="Contact us on WhatsApp" title={link ? undefined : WHATSAPP_PLACEHOLDER} onClick={() => link ? window.open(link, '_blank', 'noopener,noreferrer') : onUnavailable()}><FaWhatsapp size={17} aria-hidden="true" />{children}<ArrowUpRight size={16} /></button>;
+  return <button className={`button whatsapp-action ${className}`} type="button" aria-label="Contact us on WhatsApp" title={link ? undefined : WHATSAPP_PLACEHOLDER} onClick={() => link ? window.open(link, '_blank', 'noopener,noreferrer') : onUnavailable()}>{children}<ArrowUpRight size={16} /></button>;
 }
 
 function ProductCard({ product, index, onUnavailable }: { product: Product; index: number; onUnavailable: () => void }) {
@@ -136,7 +135,7 @@ function ProductCard({ product, index, onUnavailable }: { product: Product; inde
     <div className="product-image-wrap">
       <div className="product-poster-head"><span>URR LAHORE</span><span>BASANT / {String(index).padStart(2, '0')}</span></div>
       <ProductArtwork product={product} />
-      <span className="placeholder-tag sale-font">BASANT 2026</span>
+      <span className="placeholder-tag sale-font">BASANT 2027</span>
       <span className="product-card-sparkle" aria-hidden="true">✦</span>
     </div>
     <div className="product-copy">
@@ -221,7 +220,7 @@ function App() {
           <DecorativeKite className="banner-kite-two" color="#06B6D4" secondColor="#FF5733" size={47} />
         </div>
         <div className="hero-banner-actions">
-          <p>URR LAHORE <span>/ BASANT 2026</span></p>
+          <p>URR LAHORE <span>/ BASANT 2027</span></p>
           <div className="hero-banner-links">
             <a className="button button-dark" href="#collection">EXPLORE THE COLLECTION <ArrowDownRight size={17} /></a>
             <a className="button hero-banner-secondary" href="#feeling">DISCOVER THE STORY <ArrowRight size={16} /></a>
@@ -231,7 +230,7 @@ function App() {
       <ContinuousMarquee
         variant="ticker"
         items={TICKER_PHRASES}
-        label="1. Rang Lahore de, khaabe taur de. 2. Guddi, Dor te khaba – udaayi ja, khaayi ja. 3. Pecha vi, Khabba vi."
+        label="Rang Lahore de, khaabe taur de. Guddi, Dor te khaba – udaayi ja, khaayi ja. Pecha vi, Khabba vi."
         speed={42}
       />
       <section className="collection section-pad" id="collection" aria-labelledby="collection-title">
@@ -268,10 +267,9 @@ function App() {
         </div>
       </section>
     </main>
-    <footer className="site-footer" id="contact"><DecorativeKite className="footer-kite kite-pop" color="#FFCC00" secondColor="#F1257A" size={42} /><div className="footer-top"><div className="footer-brand-block"><a className="footer-brand" href="#top" aria-label={`${TEMPORARY_BRAND_NAME} home`}><img src="/urr-lahore-logo-tight.png" alt="URR Lahore" /></a><p>A seasonal collection inspired by Basant in Lahore. Product details and order confirmation are shared directly through WhatsApp.</p></div><div className="footer-callout"><h2 className="footer-tagline">LET’S MAKE THIS BASANT COLORFUL.</h2><button className="button footer-whatsapp-cta" type="button" onClick={contactWhatsApp}>CONTACT US <ArrowUpRight size={17} /></button></div></div><div className="footer-bottom"><nav className="footer-links" aria-label="Footer navigation"><a href="#top">Home</a><a href="#collection">Collection</a><a href="#feeling">About Basant</a><a href="#preorder">How pre-orders work</a><a href="#contact">Contact</a></nav><p>Prices and availability are confirmed by the brand on WhatsApp.</p><span className="footer-year">© {new Date().getFullYear()} URR Lahore</span></div></footer>
-    <button className={`floating-whatsapp ${waLink ? '' : 'not-configured'}`} type="button" onClick={contactWhatsApp} aria-label="Contact us on WhatsApp" title={waLink ? 'Contact us on WhatsApp' : WHATSAPP_PLACEHOLDER} data-testid="button-floating-whatsapp"><FaWhatsapp size={23} aria-hidden="true" /><span>CONTACT US</span></button>
+    <footer className="site-footer" id="contact"><DecorativeKite className="footer-kite kite-pop" color="#FFCC00" secondColor="#F1257A" size={42} /><div className="footer-top"><div className="footer-brand-block"><a className="footer-brand" href="#top" aria-label={`${TEMPORARY_BRAND_NAME} home`}><img src="/urr-lahore-logo-tight.png" alt="URR Lahore" /></a><p>A seasonal collection inspired by Basant in Lahore. Product details and order confirmation are shared directly through WhatsApp.</p></div><div className="footer-callout"><h2 className="footer-tagline">LET’S MAKE THIS BASANT COLORFUL.</h2><button className="button footer-whatsapp-cta" type="button" onClick={contactWhatsApp}>CONTACT US <ArrowUpRight size={17} /></button></div></div><div className="footer-bottom"><nav className="footer-links" aria-label="Footer navigation"><a href="#top">Home</a><a href="#collection">Collection</a><a href="#feeling">About Basant</a><a href="#preorder">How pre-orders work</a><a href="#contact">Contact</a></nav><p>Prices and availability are confirmed by the brand on WhatsApp.</p><span className="footer-year">© 2027 URR Lahore</span></div></footer>
     {notice && <div className="notice-toast" role="status" aria-live="polite">{notice}<button type="button" aria-label="Dismiss message" onClick={() => setNotice('')}><X size={16} /></button></div>}
-     {isLoading && <div className={`kite-preloader ${loaderLeaving ? 'is-leaving' : ''}`} role="status" aria-label="Loading URR Lahore Basant collection"><div className="preloader-sun" /><div className="preloader-kite"><KiteMark color="#F1257A" secondColor="#FFCC00" size={82} /></div><span className="preloader-brand">URR LAHORE <i> / </i> BASANT 2026</span><span className="preloader-message">THE SKY IS GETTING READY</span><span className="preloader-progress"><i /></span></div>}
+     {isLoading && <div className={`kite-preloader ${loaderLeaving ? 'is-leaving' : ''}`} role="status" aria-label="Loading URR Lahore Basant collection"><div className="preloader-sun" /><div className="preloader-kite"><KiteMark color="#F1257A" secondColor="#FFCC00" size={82} /></div><span className="preloader-brand">URR LAHORE <i> / </i> BASANT 2027</span><span className="preloader-message">THE SKY IS GETTING READY</span><span className="preloader-progress"><i /></span></div>}
   </div>;
 }
 

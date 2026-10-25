@@ -9,7 +9,7 @@ export type Product = {
 };
 
 export const PRODUCTS: Product[] = [
-  { id: 'patang-01', name: 'Patang', category: 'PATANG', description: 'A colourful kite for the Basant sky.', details: '4.5 GITHI', image: '/products/kite-blue-panel.webp', gallery: ['/products/kite-blue-roundel.webp'] },
+  { id: 'patang-01', name: 'Patang', category: 'PATANG', description: 'A colourful kite for the Basant sky.', details: '4.5 GITHI', image: '/products/kite-patang-maroon.webp', gallery: ['/products/kite-blue-roundel.webp'] },
   { id: 'gudda-01', name: 'Gudda', category: 'GUDDA', description: 'A classic Gudda for your Basant celebration.', details: '1 tawa · 1.5 Tawa', image: '/products/kite-red-card.webp', gallery: ['/products/kite-brown-gold.webp'] },
   { id: 'dor-01', name: 'Dor', category: 'DOR', description: 'Colourful kite string, ready for the rooftop.', details: 'PINNA · 2 PIECE', image: '/products/kite-string-assortment.webp' },
 ];

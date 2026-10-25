@@ -3,18 +3,14 @@ export type Product = {
   name: string;
   category: string;
   description: string;
+  details: string;
   image: string;
 };
 
 export const PRODUCTS: Product[] = [
-  { id: 'patang-01', name: 'Maroon Special Patang', category: 'SPECIAL PATANG', description: 'A distinctive maroon design. Ask us about price and availability.', image: '/products/maroon-special-patang.webp' },
-  { id: 'patang-02', name: 'Black & Gold Patang', category: 'DESIGN PATANG', description: 'A black patang with gold details. Ask us about price and availability.', image: '/products/black-gold-patang.webp' },
-  { id: 'patang-03', name: 'Striped Colour Patang', category: 'DESIGN PATANG', description: 'A bright striped patang. Ask us about price and availability.', image: '/products/striped-color-patang.webp' },
-  { id: 'patang-04', name: 'Magenta Pattern Patang', category: 'DESIGN PATANG', description: 'A magenta, white and black design. Ask us about price and availability.', image: '/products/magenta-pattern-patang.webp' },
-  { id: 'string-01', name: 'Kite String Assortment', category: 'KITE STRING', description: 'A colourful kite-string assortment. Ask us about price and availability.', image: '/products/kite-string-assortment.webp' },
-  { id: 'string-02', name: 'Blue & Green Kite String', category: 'KITE STRING', description: 'A blue, green and purple string assortment. Ask us about price and availability.', image: '/products/blue-green-kite-string.webp' },
-  { id: 'set-01', name: 'Mixed Patang Set', category: 'PATANG SET', description: 'A selection of colourful patangs. Ask us about price and availability.', image: '/products/mixed-patang-set.webp' },
-  { id: 'set-02', name: 'Colourful Patang Mix', category: 'PATANG SET', description: 'A bright mix of Basant colours. Ask us about price and availability.', image: '/products/colorful-patang-mix.webp' },
+  { id: 'patang-01', name: 'Patang', category: 'PATANG', description: 'A colourful kite for the Basant sky.', details: '4.5 GITHI', image: '/products/striped-color-patang.webp' },
+  { id: 'gudda-01', name: 'Gudda', category: 'GUDDA', description: 'A classic Gudda for your Basant celebration.', details: '1 tawa · 1.5 Tawa', image: '/products/maroon-special-patang.webp' },
+  { id: 'dor-01', name: 'Dor', category: 'DOR', description: 'Colourful kite string, ready for the rooftop.', details: 'PINNA · 2 PIECE', image: '/products/kite-string-assortment.webp' },
 ];
 
 export const FEATURED_PRODUCT_ID = 'patang-01';

@@ -3,12 +3,13 @@ import { ArrowDownRight, ArrowRight, ArrowUpRight, Menu, Wind, X } from 'lucide-
 import { FaWhatsapp } from 'react-icons/fa';
 import { DEFAULT_WHATSAPP_MESSAGE, FEATURED_PRODUCT_ID, PRODUCTS, TEMPORARY_BRAND_NAME, WHATSAPP_NUMBER, WHATSAPP_PLACEHOLDER, productWhatsAppMessage, type Product } from './config';
 
-const ANNOUNCEMENT_ITEMS = ['BASANT SEASON', 'LAHORE IN FULL COLOR'];
 const TICKER_PHRASES = [
   '1. Rang Lahore de, khaabe taur de',
   '2. Guddi, Dor te khaba – udaayi ja, khaayi ja',
   '3. Pecha vi, Khabba vi',
 ];
+const ANNOUNCEMENT_ITEMS = ['BASANT SEASON', 'LAHORE IN FULL COLOR', ...TICKER_PHRASES];
+const ANNOUNCEMENT_LABEL = ['Basant season', 'Lahore in full color', ...TICKER_PHRASES].join('. ');
 
 function ContinuousMarquee({
   variant,
@@ -198,7 +199,7 @@ function App() {
   const featured = PRODUCTS.find((product) => product.id === FEATURED_PRODUCT_ID);
 
   return <div className="page-shell grain" id="top">
-    <ContinuousMarquee variant="announcement" items={ANNOUNCEMENT_ITEMS} label="Basant season. Celebrate in full color." speed={48} />
+    <ContinuousMarquee variant="announcement" items={ANNOUNCEMENT_ITEMS} label={ANNOUNCEMENT_LABEL} speed={48} />
     <Header />
     <main>
       <section className="hero hero-banner" aria-labelledby="hero-title">

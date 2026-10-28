@@ -218,6 +218,7 @@
 .feeling-copy h2 { margin:19px 0 24px; }
 .large-copy { font:500 17px/1.65 'Poppins',sans-serif; }
 .body-copy { font-size:11px; line-height:1.9; color:#685642; margin:0 0 22px; }
+.story-copy { margin:0; max-width:62ch; color:#685642; font:400 12px/1.9 'Poppins',sans-serif; }
 .feeling-copy .text-link { border-bottom:1px solid var(--tomato); padding-bottom:5px; font-size:11px; }
 .feeling-number { position:absolute; right:4vw; bottom:17px; font:400 39px 'Bungee',sans-serif; color:rgba(48,32,20,.15); }
 .color-strip { background:var(--violet); color:#fff3d0; padding:22px 8vw; }
@@ -332,7 +333,6 @@
   .feeling-copy h2 { margin:16px 0 18px; }
   .large-copy { font-size:15px; }
   .body-copy { font-size:10px; }
-  .feeling-copy .body-copy { font-size:11px; }
   .feeling-number { right:20px; bottom:15px; font-size:28px; }
   .color-strip { padding:19px 20px; }
   .color-strip-inner { flex-direction:column; gap:13px; text-align:center; font-size:7px; }

@@ -263,11 +263,7 @@ function App() {
         <div className="feeling-copy reveal">
           <p className="eyebrow"><span className="eyebrow-mark">03</span> OUR STORY</p>
           <h2 className="heading" id="feeling-title">A CITY WE LOVE.<br /><em>A STORY TO SHARE.</em></h2>
-          <p className="large-copy">URR Lahore comes from our personal love of Lahore—its generosity, its energy and its instinct to celebrate. For us, festivity, food, fiesta and fun are not simply attractions; they are how this city brings people together.</p>
-          <p className="body-copy">Over the years, we have gathered first-hand experience and built longstanding partnerships and personal relationships with the people behind those celebrations. From kite makers and caterers to artists, performers and hosts, these connections are the foundation of URR Lahore.</p>
-          <p className="body-copy">We bring that experience together through one window, opening doors to Lahore’s food, crafts, architecture, heritage and hospitality. Choose a single experience or let us help shape the whole occasion—personal, flexible and built around you.</p>
-          <p className="body-copy story-closing">For Lahoris, visitors and a diaspora longing to reconnect, Basant is our starting point, not the limit of our ambition. URR LAHORE—sharing the city we love, through celebrations which you can make your own.</p>
-          <a className="text-link" href="#preorder">How pre-ordering works <ArrowRight size={17} /></a>
+          <p className="story-copy">URR Lahore comes from our personal love of Lahore—its generosity, its energy and its instinct to celebrate. For us, festivity, food, fiesta and fun are not simply attractions; they are how this city brings people together. Over the years, we have gathered first-hand experience and built longstanding partnerships and personal relationships with the people behind those celebrations. From kite makers and caterers to artists, performers and hosts, these connections are the foundation of URR Lahore. We bring that experience together through one window, opening doors to Lahore’s food, crafts, architecture, heritage and hospitality. Choose a single experience or let us help shape the whole occasion—personal, flexible and built around you. For Lahoris, visitors and a diaspora longing to reconnect, Basant is our starting point, not the limit of our ambition. URR LAHORE—sharing the city we love, through celebrations which you can make your own</p>
         </div>
         <span className="feeling-number">II</span>
       </section>

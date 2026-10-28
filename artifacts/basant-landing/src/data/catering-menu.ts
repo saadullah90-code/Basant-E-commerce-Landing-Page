@@ -164,7 +164,7 @@ export const cateringLiveStations = [
   'Tawa Qeema',
   'Fish BBQ / Grill',
   'Gol Gappay',
-  'Pan',
+  'Pan Khoka',
   'Halwa Puri / Pathooray',
   'Salad Bar',
 ];

@@ -332,6 +332,7 @@
   .feeling-copy h2 { margin:16px 0 18px; }
   .large-copy { font-size:15px; }
   .body-copy { font-size:10px; }
+  .feeling-copy .body-copy { font-size:11px; }
   .feeling-number { right:20px; bottom:15px; font-size:28px; }
   .color-strip { padding:19px 20px; }
   .color-strip-inner { flex-direction:column; gap:13px; text-align:center; font-size:7px; }
@@ -398,8 +399,8 @@
 .product-meta { color:#665344; font-size:9px; }
 .product-name { font-family:'Fredoka',sans-serif; font-weight:500; font-size:22px; }
 .product-copy p { font-size:10px; min-height:54px; }
-.product-card .whatsapp-action { width:100%; justify-content:center; white-space:normal; text-align:center; line-height:1.25; min-height:42px; }
-.whatsapp-action { font-size:12px; letter-spacing:.025em; }
+.product-card .contact-action { width:100%; justify-content:center; white-space:normal; text-align:center; line-height:1.25; min-height:42px; }
+.contact-action { font-size:12px; letter-spacing:.025em; }
 .button-small { font:600 11px 'Fredoka',sans-serif; }
 .featured-section { background:#f4e6c8; }
 .featured-copy h2 { font-weight:700; }
@@ -444,8 +445,8 @@
 .footer-brand-block p { max-width:330px; margin:8px 0 0; color:rgba(255,246,223,.78); font:400 11px/1.8 'Poppins',sans-serif; }
 .footer-callout { display:flex; align-items:flex-start; flex-direction:column; gap:22px; }
 .footer-tagline { margin:0; color:var(--sun); font:400 clamp(25px,4vw,48px)/1.05 'Luckiest Guy',cursive; letter-spacing:.02em; }
-.footer-whatsapp-cta { background:var(--sun); border-color:var(--sun); color:var(--ink); }
-.footer-whatsapp-cta:hover { background:#fff6df; }
+.footer-contact-cta { background:var(--sun); border-color:var(--sun); color:var(--ink); }
+.footer-contact-cta:hover { background:#fff6df; }
 .footer-bottom { display:flex; align-items:center; justify-content:space-between; gap:20px; max-width:1300px; margin:0 auto; padding-top:18px; }
 .footer-links { display:flex; align-items:center; flex-wrap:wrap; gap:clamp(12px,2.5vw,31px); }
 .footer-links a { color:#fff6df; text-decoration:none; font:500 10px 'Poppins',sans-serif; }
@@ -462,7 +463,7 @@
   .brand-lockup { width:108px; }
   .brand-lockup img { width:108px; }
   .product-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .product-card .whatsapp-action { font-size:10px; }
+  .product-card .contact-action { font-size:10px; }
   .footer-top { grid-template-columns:minmax(150px,.6fr) minmax(280px,1fr); gap:26px; }
   .footer-bottom { flex-wrap:wrap; }
   .footer-bottom p { flex-basis:100%; order:3; }
@@ -481,7 +482,7 @@
   .hero-actions { flex-direction:column; align-items:flex-start; }
   .hero-secondary { max-width:100%; }
   .product-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
-  .product-card .whatsapp-action { min-height:44px; padding:8px 5px; font-size:9px; }
+  .product-card .contact-action { min-height:44px; padding:8px 5px; font-size:9px; }
   .product-copy p { font-size:9px; }
   .product-name { font-size:16px; }
   .preorder-section { padding:70px 22px; }
@@ -520,7 +521,7 @@
   .product-art { aspect-ratio:.78; }
   .product-copy { padding:11px 9px; }
   .product-copy p { min-height:0; }
-  .product-card .whatsapp-action { font-size:8px; }
+  .product-card .contact-action { font-size:8px; }
   .placeholder-tag { max-width:calc(100% - 12px); font-size:7px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -602,7 +603,7 @@
 .product-copy { padding:17px 16px 16px; background:#fffdf5; }
 .product-name { font-size:23px; font-weight:700; line-height:1; }
 .product-copy p { min-height:0; }
-.product-card .whatsapp-action { min-height:46px; gap:6px; border-radius:5px 15px 5px 15px; font-size:10px; }
+.product-card .contact-action { min-height:46px; gap:6px; border-radius:5px 15px 5px 15px; font-size:10px; }
 .site-footer#contact { scroll-margin-top:140px; }
 @media (max-width:1000px) {
   .brand-lockup { width:108px; }
@@ -625,7 +626,7 @@
   .product-card-sparkle { top:43px; right:14px; font-size:20px; }
   .product-copy { padding:13px 10px 11px; }
   .product-name { font-size:17px; }
-  .product-card .whatsapp-action { min-height:44px; padding:7px 5px; font-size:8px; }
+  .product-card .contact-action { min-height:44px; padding:7px 5px; font-size:8px; }
   .footer-top { grid-template-columns:1fr; }
 }
 

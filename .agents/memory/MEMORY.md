@@ -1,3 +1,4 @@
 - [URR Lahore logo display](urr-lahore-logo.md) — the supplied transparent canvas differs from the visible mark; verify the whole kite and wordmark at desktop and mobile sizes.
 - [Landing-page motion](landing-page-motion.md) — keep Basant animations smooth and lightweight; avoid jank while preserving scroll-based reveals.
 - [About section placement](about-section-placement.md) — keep About Us as the final content section, directly above the footer.
+- [Public contact wording](public-contact-wording.md) — use generic contact language throughout the landing page and preserve its configured contact destination.
